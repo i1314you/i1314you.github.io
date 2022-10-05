@@ -1,164 +1,564 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
 
-  
-  <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.13.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="始终保持着对生活的激情">
+<meta property="og:type" content="website">
+<meta property="og:title" content="bear的博客">
 <meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
+<meta property="og:site_name" content="bear的博客">
+<meta property="og:description" content="始终保持着对生活的激情">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="bear">
 <meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  
-<link rel="stylesheet" href="/css/style.css">
 
-<meta name="generator" content="Hexo 5.4.2"></head>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
+<link rel="canonical" href="http://example.com/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"index.html","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>bear的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">bear的博客</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">记录生活的点点滴滴</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
         
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">bear</p>
+  <div class="site-description" itemprop="description">始终保持着对生活的激情</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
       </div>
     </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
   </div>
-</header>
-      <div class="outer">
-        <section id="main">
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
   
-    <article id="post-vue知识" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/10/02/vue%E7%9F%A5%E8%AF%86/" class="article-date">
-  <time datetime="2022-10-02T14:14:06.000Z" itemprop="datePublished">2022-10-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/10/02/vue%E7%9F%A5%E8%AF%86/">vue知识</a>
-    </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="bear">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="bear的博客">
+      <meta itemprop="description" content="始终保持着对生活的激情">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | bear的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/10/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" class="post-title-link" itemprop="url">数据结构与算法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
       
-        
+
+      <time title="创建时间：2022-10-04 21:32:38 / 修改时间：22:58:14" itemprop="dateCreated datePublished" datetime="2022-10-04T21:32:38+08:00">2022-10-04</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h1><ul>
+<li>二叉树节点的深度：指从根节点到该节点的最长简单路径边的条数。采用前序遍历，从上到下进行遍历，求二叉树最大深度，此时我们也可以采用后序遍历求高度实际上就是就深度，从下往上，把节点值一层一层往上面加</li>
+<li>二叉树节点的高度：指从该节点到叶子节点的最长简单路径边的条数。采用后序遍历，从下到上逐层返回，如判断平衡二叉树</li>
+</ul>
+
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/10/02/vue%E7%9F%A5%E8%AF%86/" data-id="cl8s3371p0003xou4dugy7qou" class="article-share-link">Share</a>
-      
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
       
     </footer>
-  </div>
-  
-</article>
+  </article>
+</div>
 
 
+
+
+    
+
+
+<div class="post-block">
   
-    <article id="post-html知识" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/10/02/html%E7%9F%A5%E8%AF%86/" class="article-date">
-  <time datetime="2022-10-02T14:13:54.000Z" itemprop="datePublished">2022-10-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/10/02/html%E7%9F%A5%E8%AF%86/">html知识</a>
-    </h1>
   
 
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/03/es6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="bear">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="bear的博客">
+      <meta itemprop="description" content="始终保持着对生活的激情">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | bear的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/10/03/es6/" class="post-title-link" itemprop="url">es6</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-10-03 10:05:25" itemprop="dateCreated datePublished" datetime="2022-10-03T10:05:25+08:00">2022-10-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-05 08:50:19" itemprop="dateModified" datetime="2022-10-05T08:50:19+08:00">2022-10-05</time>
+    </span>
+
+  
+</div>
+
+        </div>
       </header>
+
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="1-暂时性死区"><a href="#1-暂时性死区" class="headerlink" title="1.暂时性死区"></a>1.暂时性死区</h1><p>意思就是 let 和 <code>const </code>声明的变量在块级作用域中，在声明之前不能使用，使用了就会报错   主要是为了减少运行时错误</p>
+<p>块级作用域的出现，使得IIFE变得不再需要了</p>
+<h1 id="2-声明变量的6种方法"><a href="#2-声明变量的6种方法" class="headerlink" title="2.声明变量的6种方法"></a>2.声明变量的6种方法</h1><p><code>var</code> , function , let , <code>const</code> , import , class</p>
+<h1 id="3-顶层对象的属性"><a href="#3-顶层对象的属性" class="headerlink" title="3.顶层对象的属性"></a>3.顶层对象的属性</h1><p>ES5中，<code>window.a</code> == a         其实这种设计不好，最大的败笔之一，因为程序员可能不小心创建了全局变量，同时顶层对象属性是到处可以读写的，这样不适合模块化编程。 所有ES6规定，let ，<code>const </code>, class声明的全局变量不属于顶层对象的属性</p>
+<h1 id="4-变量的结构赋值"><a href="#4-变量的结构赋值" class="headerlink" title="4.变量的结构赋值"></a>4.变量的结构赋值</h1><p>数组的解构赋值：</p>
+<p>用法：let [a,b,c] = [1,2,3]      必须具备  Iterator  接口，才能进行解构赋值</p>
+<p>对象的解构赋值：</p>
+<p><code>let [foo,bar] = &#123;foo:&#39;aaa&#39;,bar:&#39;bbb&#39;&#125;,</code>      变量必须与属性同名才能获取值</p>
+<p><code>let &#123;foo:foo,bar:bar&#125; = &#123;foo:&#39;aaa&#39;,bar:&#39;bbb&#39;&#125;</code>      前面是同名属性，真正赋值的是后面，后面才是变量</p>
+<p>字符串的解构赋值：</p>
+<p><code>let &#123;a,b,c&#125; = &#39;hel&#39;</code></p>
+<p><code>let &#123;length:len&#125; = &#39;hello&#39;     len//5  </code>      类似数组的对象都有一个length属性</p>
+<p>应用场景：</p>
+<ol>
+<li>交换变量值： [x,y] = [y,x]</li>
+<li>遍历map解构，如       for(let [key] of map){}    for(let [key,value] of map){}    for(let [value] of map){}</li>
+<li>输入模块的指定方法     如： <code> const &#123;reqGetGoodList&#125; = require()</code></li>
+</ol>
+<h1 id="5-模板字符串"><a href="#5-模板字符串" class="headerlink" title="5.模板字符串"></a>5.模板字符串</h1><p>​             相当于可以将变量加入字符串中：```${x}+${y}`` `</p>
+<h1 id="6-箭头函数"><a href="#6-箭头函数" class="headerlink" title="6.箭头函数"></a>6.箭头函数</h1><ol>
+<li>没有自己this</li>
+<li>不可以new，就是不能当构造函数</li>
+<li>没有<code>argumengts</code>对象</li>
+<li>不能使用<code>yield</code>命令</li>
+</ol>
+<h1 id="7-扩展运算符"><a href="#7-扩展运算符" class="headerlink" title="7.扩展运算符"></a>7.扩展运算符</h1><ol>
+<li> 复制数组，对数组进行一个克隆生成新的数组        a2.contact(a1)         a2 = […a1]    […a2] = a1  解构赋值加扩展运算符</li>
+<li>合并数组       […a1,…a2]</li>
+<li>可以将字符串转为真正的数组       […’he’]      输出    [‘h’,’e’]</li>
+<li>任何实现了Iterator 接口的对象都可以转换成真正的数组</li>
+<li>map和set 也是类数组</li>
+</ol>
+<p><code>Array.from()</code>用于将两类对象转为真正的数组，类似数组对象和可遍历对象，Iterator</p>
+<p><code>Object.assign(target,source1,source2)</code>用于对象的合并      将源对象的可枚举属性添加到目标对象上</p>
+<p>指数运算符：a ** a   特点为右结合，注意， a ** b ** c = a ** (b ** c)</p>
+<h1 id="8-Symbol"><a href="#8-Symbol" class="headerlink" title="8.Symbol"></a>8.Symbol</h1><p>对象属性名都是字符串，这容易造成属性名的冲突。保证每个属性的名字都是独一无二的就好了，这样就从根本上防止属性名的冲突。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> s = <span class="title class_">Symbol</span>();注意不要<span class="keyword">new</span> 	因为他是基本类型</span><br></pre></td></tr></table></figure>
+
+<h1 id="9-set和map"><a href="#9-set和map" class="headerlink" title="9.set和map"></a>9.set和map</h1><p>注：类似数组</p>
+<p>set:</p>
+<p>属性：size 返回成员总数</p>
+<p>方法：add delete has clear          <strong><code>keys()</code>，<code>values()</code>，<code>entries()</code></strong>         <code>keys</code>方法和<code>values</code>方法的行为完全一致。</p>
+<p>Set 结构的实例与数组一样，也拥有<code>forEach</code>方法，用于对每个成员执行某种操作，</p>
+<p>应用：</p>
+<ol>
+<li><p> 去重</p>
+</li>
+<li><p>使用 Set 可以很容易地实现并集（Union）、交集（Intersect）和差集</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="keyword">new</span> <span class="title class_">Set</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]);</span><br><span class="line"><span class="keyword">let</span> b = <span class="keyword">new</span> <span class="title class_">Set</span>([<span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>]);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 并集</span></span><br><span class="line"><span class="keyword">let</span> union = <span class="keyword">new</span> <span class="title class_">Set</span>([...a, ...b]);</span><br><span class="line"><span class="comment">// Set &#123;1, 2, 3, 4&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 交集</span></span><br><span class="line"><span class="keyword">let</span> intersect = <span class="keyword">new</span> <span class="title class_">Set</span>([...a].<span class="title function_">filter</span>(<span class="function"><span class="params">x</span> =&gt;</span> b.<span class="title function_">has</span>(x)));  此处使用[...a]是将其转为数组，同时前面有set是因为b.<span class="property">has</span>要用set</span><br><span class="line"><span class="comment">// set &#123;2, 3&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// （a 相对于 b 的）差集</span></span><br><span class="line"><span class="keyword">let</span> difference = <span class="keyword">new</span> <span class="title class_">Set</span>([...a].<span class="title function_">filter</span>(<span class="function"><span class="params">x</span> =&gt;</span> !b.<span class="title function_">has</span>(x)));</span><br><span class="line"><span class="comment">// Set &#123;1&#125;</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>不重要了解：<code>WeakSet</code> 结构与 Set 类似，也是不重复的值的集合。但是，它与 Set 有两个区别。</p>
+<p>首先，<code>WeakSet</code> 的成员只能是对象，而不能是其他类型的值。</p>
+<p>map:</p>
+<p>JavaScript 的对象（Object），本质上是键值对的集合（Hash 结构），但是传统上只能用字符串当作键。这给它的使用带来了很大的限制。为了解决这个问题，ES6 提供了 Map 数据结构。它类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键。</p>
+<p>属性：size</p>
+<p>方法：<strong>set(key, value)</strong>          <strong>get(key)</strong>       <strong>has(key)</strong>        <strong>delete(key)</strong>     <strong>clear()</strong>    map一切操作都是基于键的</p>
+<p>Map 结构原生提供三个遍历器生成函数和一个遍历方法。</p>
+<ul>
+<li><code>Map.prototype.keys()</code>：返回键名的遍历器。</li>
+<li><code>Map.prototype.values()</code>：返回键值的遍历器。</li>
+<li><code>Map.prototype.entries()</code>：返回所有成员的遍历器。</li>
+<li><code>Map.prototype.forEach()</code>：遍历 Map 的所有成员。</li>
+</ul>
+<p><strong>（1）Map 转为数组</strong>  使用扩展运算符（<code>...</code>）</p>
+<p><strong>（2）数组 转为 Map</strong>  将数组传入 Map 构造函数，就可以转为 Map。</p>
+<p><code>WeakMap</code>只接受对象作为键名（<code>null</code>除外），不接受其他类型的值作为键名。</p>
+<h1 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h1><h1 id="Reflect"><a href="#Reflect" class="headerlink" title="Reflect"></a>Reflect</h1>
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/10/02/html%E7%9F%A5%E8%AF%86/" data-id="cl8s3371o0002xou4fykqg3oo" class="article-share-link">Share</a>
-      
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
       
     </footer>
-  </div>
-  
-</article>
+  </article>
+</div>
 
 
+
+
+    
+
+
+<div class="post-block">
   
-    <article id="post-JS知识" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/10/02/JS%E7%9F%A5%E8%AF%86/" class="article-date">
-  <time datetime="2022-10-02T14:13:38.000Z" itemprop="datePublished">2022-10-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/10/02/JS%E7%9F%A5%E8%AF%86/">JS知识</a>
-    </h1>
   
 
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/02/vue%E7%9F%A5%E8%AF%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="bear">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="bear的博客">
+      <meta itemprop="description" content="始终保持着对生活的激情">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | bear的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/10/02/vue%E7%9F%A5%E8%AF%86/" class="post-title-link" itemprop="url">vue知识</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-10-02 22:14:06" itemprop="dateCreated datePublished" datetime="2022-10-02T22:14:06+08:00">2022-10-02</time>
+    </span>
+
+  
+</div>
+
+        </div>
       </header>
+
     
-    <div class="article-entry" itemprop="articleBody">
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          
       
-        <h1 id="typeof"><a href="#typeof" class="headerlink" title="typeof"></a>typeof</h1><ol>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/02/html%E7%9F%A5%E8%AF%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="bear">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="bear的博客">
+      <meta itemprop="description" content="始终保持着对生活的激情">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | bear的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/10/02/html%E7%9F%A5%E8%AF%86/" class="post-title-link" itemprop="url">html知识</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-10-02 22:13:54" itemprop="dateCreated datePublished" datetime="2022-10-02T22:13:54+08:00">2022-10-02</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/02/JS%E7%9F%A5%E8%AF%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="bear">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="bear的博客">
+      <meta itemprop="description" content="始终保持着对生活的激情">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | bear的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/10/02/JS%E7%9F%A5%E8%AF%86/" class="post-title-link" itemprop="url">JS知识</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-10-02 22:13:38" itemprop="dateCreated datePublished" datetime="2022-10-02T22:13:38+08:00">2022-10-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-03 09:18:31" itemprop="dateModified" datetime="2022-10-03T09:18:31+08:00">2022-10-03</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="typeof"><a href="#typeof" class="headerlink" title="typeof"></a>typeof</h1><ol>
 <li> 检测 null 为 object,表示空对象的引用</li>
 <li>检测数组返回object，数组为特殊的对象类型</li>
 <li>null和undefined  值相等 类型不等</li>
@@ -464,40 +864,73 @@
 
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/10/02/JS%E7%9F%A5%E8%AF%86/" data-id="cl8s3371l0001xou429ay8loe" class="article-share-link">Share</a>
-      
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
       
     </footer>
-  </div>
-  
-</article>
+  </article>
+</div>
 
 
+
+
+    
+
+
+<div class="post-block">
   
-    <article id="post-css知识" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/10/02/css%E7%9F%A5%E8%AF%86/" class="article-date">
-  <time datetime="2022-10-02T11:30:40.000Z" itemprop="datePublished">2022-10-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/10/02/css%E7%9F%A5%E8%AF%86/">css知识</a>
-    </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/02/css%E7%9F%A5%E8%AF%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="bear">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="bear的博客">
+      <meta itemprop="description" content="始终保持着对生活的激情">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | bear的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/10/02/css%E7%9F%A5%E8%AF%86/" class="post-title-link" itemprop="url">css知识</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
       
-        <h1 id="css3多列属性"><a href="#css3多列属性" class="headerlink" title="css3多列属性"></a>css3多列属性</h1><ol>
+
+      <time title="创建时间：2022-10-02 19:30:40 / 修改时间：22:12:41" itemprop="dateCreated datePublished" datetime="2022-10-02T19:30:40+08:00">2022-10-02</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="css3多列属性"><a href="#css3多列属性" class="headerlink" title="css3多列属性"></a>css3多列属性</h1><ol>
 <li> column-count指定元素被分割的列数</li>
 <li> column-rule包括两列间的宽度，样式，颜色，如1px solid blue   </li>
 </ol>
@@ -507,107 +940,58 @@
 
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/10/02/css%E7%9F%A5%E8%AF%86/" data-id="cl8s3371h0000xou4as4773z1" class="article-share-link">Share</a>
-      
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
       
     </footer>
+  </article>
+</div>
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">bear</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
-  
-</article>
 
-
-  
-
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li></ul>
     </div>
-  </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
 
 
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2022/10/02/vue%E7%9F%A5%E8%AF%86/">vue知识</a>
-          </li>
-        
-          <li>
-            <a href="/2022/10/02/html%E7%9F%A5%E8%AF%86/">html知识</a>
-          </li>
-        
-          <li>
-            <a href="/2022/10/02/JS%E7%9F%A5%E8%AF%86/">JS知识</a>
-          </li>
-        
-          <li>
-            <a href="/2022/10/02/css%E7%9F%A5%E8%AF%86/">css知识</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2022 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
 
 
-<script src="/js/script.js"></script>
 
-
-
-
-  </div>
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
 </html>
