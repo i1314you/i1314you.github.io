@@ -20,27 +20,29 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.13.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="始终保持着对生活的激情">
+    <meta name="description" content="XML简介可扩展标记语言，用来传输和存储数据，不同于html是预定义标签，不过都差不多用json来取代了 HTTP请求报文 ：请求行：GET  url参数  HTTP&#x2F;1.1（版本），请求头：如Host: atguigu.com，空格，请求体 :  get没有请求体，post有 相应报文：相应行： HTTP&#x2F;1.1  200    OK，相应头:跟请求头的格式差不多，空格，响应体：服务器返回给我们">
 <meta property="og:type" content="article">
-<meta property="og:title" content="html知识">
-<meta property="og:url" content="http://example.com/2022/10/02/html%E7%9F%A5%E8%AF%86/index.html">
+<meta property="og:title" content="ajax">
+<meta property="og:url" content="http://example.com/2022/10/14/ajax/index.html">
 <meta property="og:site_name" content="bear的博客">
-<meta property="og:description" content="始终保持着对生活的激情">
+<meta property="og:description" content="XML简介可扩展标记语言，用来传输和存储数据，不同于html是预定义标签，不过都差不多用json来取代了 HTTP请求报文 ：请求行：GET  url参数  HTTP&#x2F;1.1（版本），请求头：如Host: atguigu.com，空格，请求体 :  get没有请求体，post有 相应报文：相应行： HTTP&#x2F;1.1  200    OK，相应头:跟请求头的格式差不多，空格，响应体：服务器返回给我们">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-10-02T14:13:54.000Z">
-<meta property="article:modified_time" content="2022-10-02T14:13:54.569Z">
+<meta property="og:image" content="c:/Users/33834/Desktop/博客图片/ajax重复请求问题.jpg">
+<meta property="article:published_time" content="2022-10-14T11:21:47.000Z">
+<meta property="article:modified_time" content="2022-10-14T12:12:31.023Z">
 <meta property="article:author" content="bear">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:/Users/33834/Desktop/博客图片/ajax重复请求问题.jpg">
 
 
-<link rel="canonical" href="http://example.com/2022/10/02/html%E7%9F%A5%E8%AF%86/">
+<link rel="canonical" href="http://example.com/2022/10/14/ajax/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/10/02/html%E7%9F%A5%E8%AF%86/","path":"2022/10/02/html知识/","title":"html知识"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/10/14/ajax/","path":"2022/10/14/ajax/","title":"ajax"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>html知识 | bear的博客</title>
+<title>ajax | bear的博客</title>
   
 
 
@@ -97,7 +99,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -110,6 +112,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#XML%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">XML简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP"><span class="nav-number">2.</span> <span class="nav-text">HTTP</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Express"><span class="nav-number">3.</span> <span class="nav-text">Express</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ajax"><span class="nav-number">4.</span> <span class="nav-text">ajax</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F"><span class="nav-number">5.</span> <span class="nav-text">解决跨域</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -162,7 +165,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/02/html%E7%9F%A5%E8%AF%86/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/14/ajax/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -175,12 +178,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="html知识 | bear的博客">
+      <meta itemprop="name" content="ajax | bear的博客">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          html知识
+          ajax
         </h1>
 
         <div class="post-meta-container">
@@ -190,8 +193,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2022-10-02 22:13:54" itemprop="dateCreated datePublished" datetime="2022-10-02T22:13:54+08:00">2022-10-02</time>
+      <time title="创建时间：2022-10-14 19:21:47 / 修改时间：20:12:31" itemprop="dateCreated datePublished" datetime="2022-10-14T19:21:47+08:00">2022-10-14</time>
     </span>
 
   
@@ -204,7 +208,47 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        
+        <h1 id="XML简介"><a href="#XML简介" class="headerlink" title="XML简介"></a>XML简介</h1><p>可扩展标记语言，用来传输和存储数据，不同于html是预定义标签，不过都差不多用<code>json</code>来取代了</p>
+<h1 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h1><p>请求报文 ：请求行：GET  <code>url</code>参数  HTTP/1.1（版本），请求头：如Host: atguigu.com，空格，请求体 :  get没有请求体，post有</p>
+<p>相应报文：相应行： HTTP/1.1  200    OK，相应头:跟请求头的格式差不多，空格，响应体：服务器返回给我们的数据</p>
+<h1 id="Express"><a href="#Express" class="headerlink" title="Express"></a>Express</h1><p>基于Node.js开发的Web开发框架，用来写服务器的</p>
+<p>安装：<code>node -v    ,   npm init   ,     npm i express</code></p>
+<p>基本使用：</p>
+<p><code>          const express = require(&#39;express&#39;);</code></p>
+<p>​        <code>    const app = new express();</code></p>
+<p>​    <code>        app.get(&#39;/server&#39;,(request,response)=&gt;&#123;</code></p>
+<p><code>   response.send(&#39;HELLO EXPRESS&#39;)           </code></p>
+<p><code>    &#125;)</code></p>
+<p><code>app.listen(8000,()=&gt;&#123;</code></p>
+<p><code>console.log(&quot;服务已启动&quot;)</code></p>
+<p><code>&#125;)</code></p>
+<h1 id="ajax"><a href="#ajax" class="headerlink" title="ajax"></a>ajax</h1><p><code>const xhr = new XMRHttpRequest();//创建对象</code></p>
+<p>下面这段代码是超时与网络异常的处理</p>
+<p><code>xhr.timeout = 2000;</code></p>
+<p><code>xhr.ontimeout = function()&#123;</code></p>
+<p>  <code>alert(&#39;网络异常&#39;)</code></p>
+<p>}</p>
+<p><code>xhr.onerror = function()&#123;</code></p>
+<p>  <code>alert(&#39;网络出现问题&#39;)</code></p>
+<p>}</p>
+<p><code>xhr.open(&#39;GET&#39;,&#39;http://127.0.0.1:8000/server&#39;);//初始化，设置请求方法和url</code></p>
+<p><code>xhr.send();   //发送</code></p>
+<p><code>// readyState 总共有5个值：0,1,2,3,4  值为4的时候表示服务器将全部数据发送过来了</code></p>
+<p><code>xhr.onreadystatechange = function()&#123;</code></p>
+<p> <code> if(xhr.readyState === 4 &amp;&amp; xhr.status == 200)&#123;</code></p>
+<p> <code>   console.log(xhr.status);//状态码</code></p>
+<p><code>    console.log(xhr.statusText);//状态字符串</code></p>
+<p><code>    console.log(xhr.response);//响应体</code></p>
+<p>  }else{</p>
+<p>  }</p>
+<p>}</p>
+<p>使用<code>xhr.abort()</code>取消本次网络请求</p>
+<p>重复请求问题</p>
+<p><img src="C:\Users\33834\Desktop\博客图片\ajax重复请求问题.jpg"></p>
+<h1 id="解决跨域"><a href="#解决跨域" class="headerlink" title="解决跨域"></a>解决跨域</h1><p>JSONP 只支持get请求</p>
+<p>有一些标签具有跨域能力，如<code>img,link,iframe,script</code>JSONP就是借助于script</p>
+<p>CORS  不需要客户端操作，在服务器进行，其实就是设置请求头就行</p>
+
     </div>
 
     
@@ -217,13 +261,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/10/02/JS%E7%9F%A5%E8%AF%86/" rel="prev" title="JS知识">
-                  <i class="fa fa-chevron-left"></i> JS知识
+                <a href="/2022/10/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" rel="prev" title="数据结构与算法">
+                  <i class="fa fa-chevron-left"></i> 数据结构与算法
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/10/02/vue%E7%9F%A5%E8%AF%86/" rel="next" title="vue知识">
-                  vue知识 <i class="fa fa-chevron-right"></i>
+                <a href="/2022/10/15/node-js/" rel="next" title="node.js">
+                  node.js <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>

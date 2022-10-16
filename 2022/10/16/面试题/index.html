@@ -20,27 +20,27 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.13.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="始终保持着对生活的激情">
+    <meta name="description" content="计算机网络TCP   三次握手：客户端发送SYN同步请求，服务端发送SYN+ACK，客户端发送ACK 四次挥手：客户端发送FIN+ACK，服务端发送ACK，服务端发送FIN+ACK，客户端发送ACK 不是两次握手，防止已失效的连接请求报文传到TCP服务器，出现错误 常用的状态码：1xx  表示请求还在进行中 200成功   201已创建请求    204无内容返回 3xx重定向   301永久移动">
 <meta property="og:type" content="article">
-<meta property="og:title" content="html知识">
-<meta property="og:url" content="http://example.com/2022/10/02/html%E7%9F%A5%E8%AF%86/index.html">
+<meta property="og:title" content="面试题">
+<meta property="og:url" content="http://example.com/2022/10/16/%E9%9D%A2%E8%AF%95%E9%A2%98/index.html">
 <meta property="og:site_name" content="bear的博客">
-<meta property="og:description" content="始终保持着对生活的激情">
+<meta property="og:description" content="计算机网络TCP   三次握手：客户端发送SYN同步请求，服务端发送SYN+ACK，客户端发送ACK 四次挥手：客户端发送FIN+ACK，服务端发送ACK，服务端发送FIN+ACK，客户端发送ACK 不是两次握手，防止已失效的连接请求报文传到TCP服务器，出现错误 常用的状态码：1xx  表示请求还在进行中 200成功   201已创建请求    204无内容返回 3xx重定向   301永久移动">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-10-02T14:13:54.000Z">
-<meta property="article:modified_time" content="2022-10-02T14:13:54.569Z">
+<meta property="article:published_time" content="2022-10-16T03:23:01.000Z">
+<meta property="article:modified_time" content="2022-10-16T04:29:54.108Z">
 <meta property="article:author" content="bear">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/2022/10/02/html%E7%9F%A5%E8%AF%86/">
+<link rel="canonical" href="http://example.com/2022/10/16/%E9%9D%A2%E8%AF%95%E9%A2%98/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/10/02/html%E7%9F%A5%E8%AF%86/","path":"2022/10/02/html知识/","title":"html知识"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/10/16/%E9%9D%A2%E8%AF%95%E9%A2%98/","path":"2022/10/16/面试题/","title":"面试题"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>html知识 | bear的博客</title>
+<title>面试题 | bear的博客</title>
   
 
 
@@ -97,7 +97,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -110,6 +110,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C"><span class="nav-number">1.</span> <span class="nav-text">计算机网络</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B7%A8%E5%9F%9F%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">2.</span> <span class="nav-text">跨域的解决方案</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cookie-storage"><span class="nav-number">3.</span> <span class="nav-text">cookie  storage</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">创建对象方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81"><span class="nav-number">5.</span> <span class="nav-text">防抖与节流</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">6.</span> <span class="nav-text">正则表达式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#promise%E6%A0%B8%E5%BF%83%E4%BB%A3%E7%A0%81"><span class="nav-number">7.</span> <span class="nav-text">promise核心代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%85%E6%8B%B7%E8%B4%9D%E6%B7%B1%E6%8B%B7%E8%B4%9D%EF%BC%8C%E5%AE%9E%E7%8E%B0%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%96%B9%E6%B3%95"><span class="nav-number">8.</span> <span class="nav-text">浅拷贝深拷贝，实现深拷贝方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD"><span class="nav-number">9.</span> <span class="nav-text">图片懒加载</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -162,7 +163,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/02/html%E7%9F%A5%E8%AF%86/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/16/%E9%9D%A2%E8%AF%95%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -175,12 +176,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="html知识 | bear的博客">
+      <meta itemprop="name" content="面试题 | bear的博客">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          html知识
+          面试题
         </h1>
 
         <div class="post-meta-container">
@@ -190,8 +191,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2022-10-02 22:13:54" itemprop="dateCreated datePublished" datetime="2022-10-02T22:13:54+08:00">2022-10-02</time>
+      <time title="创建时间：2022-10-16 11:23:01 / 修改时间：12:29:54" itemprop="dateCreated datePublished" datetime="2022-10-16T11:23:01+08:00">2022-10-16</time>
     </span>
 
   
@@ -204,7 +206,34 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        
+        <h1 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h1><p>TCP   三次握手：客户端发送SYN同步请求，服务端发送SYN+ACK，客户端发送ACK</p>
+<p>四次挥手：客户端发送FIN+ACK，服务端发送ACK，服务端发送FIN+ACK，客户端发送ACK</p>
+<p>不是两次握手，防止已失效的连接请求报文传到TCP服务器，出现错误</p>
+<p>常用的状态码：1xx  表示请求还在进行中</p>
+<p>200成功   201已创建请求    204无内容返回</p>
+<p>3xx重定向   301永久移动了地址，更新url     302临时移动     304使用缓存内容，服务器资源没变</p>
+<p>4xx客户端错误   400语法错误    401身份认证不成功    403权限不够    404没有这样的资源和路径，可能地址写错或者资源不在了  409版本不对</p>
+<p>5xx服务器错误   500内部错误   502网关错误   503服务器超载或维护</p>
+<p>GET和POST区别：GET：检索或获取内容     POST：创建/更新，用于表单提交之类的，有请求体</p>
+<p>HTTP无状态，使用cookie，保持持久连接，但是有时间    HTTPS使用SSL/TSL进行加密</p>
+<p>DNS域名解析，将域名变为ip地址</p>
+<h1 id="跨域的解决方案"><a href="#跨域的解决方案" class="headerlink" title="跨域的解决方案"></a>跨域的解决方案</h1><ol>
+<li> JSONP  客服端这边定义函数              服务器JSON(JS函数(真实数据))    最后客户端执行函数就行了</li>
+<li>CORS  服务端设置响应头</li>
+<li>Nginx   设置代理服务器</li>
+</ol>
+<h1 id="cookie-storage"><a href="#cookie-storage" class="headerlink" title="cookie  storage"></a>cookie  storage</h1><p>cookie：客户端发请求，服务器响应同时设置Cookie，下次客户端发请求时将携带cookie</p>
+<p>storage保存在本地</p>
+<h1 id="创建对象方法"><a href="#创建对象方法" class="headerlink" title="创建对象方法"></a>创建对象方法</h1><p>fetch也可以发送Ajax请求，基于promise，但是没有JSON转换，</p>
+<ol>
+<li> 使用字面量</li>
+<li>使用原型</li>
+<li>Object.create()</li>
+<li>工厂模式   用构造函数取代，有一些缺点</li>
+<li>构造函数</li>
+<li>class</li>
+</ol>
+<h1 id="防抖与节流"><a href="#防抖与节流" class="headerlink" title="防抖与节流"></a>防抖与节流</h1><h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><h1 id="promise核心代码"><a href="#promise核心代码" class="headerlink" title="promise核心代码"></a>promise核心代码</h1><h1 id="浅拷贝深拷贝，实现深拷贝方法"><a href="#浅拷贝深拷贝，实现深拷贝方法" class="headerlink" title="浅拷贝深拷贝，实现深拷贝方法"></a>浅拷贝深拷贝，实现深拷贝方法</h1><h1 id="图片懒加载"><a href="#图片懒加载" class="headerlink" title="图片懒加载"></a>图片懒加载</h1>
     </div>
 
     
@@ -217,14 +246,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/10/02/JS%E7%9F%A5%E8%AF%86/" rel="prev" title="JS知识">
-                  <i class="fa fa-chevron-left"></i> JS知识
+                <a href="/2022/10/15/webpack/" rel="prev" title="webpack">
+                  <i class="fa fa-chevron-left"></i> webpack
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/10/02/vue%E7%9F%A5%E8%AF%86/" rel="next" title="vue知识">
-                  vue知识 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>

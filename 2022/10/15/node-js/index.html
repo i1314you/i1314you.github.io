@@ -20,27 +20,27 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.13.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="始终保持着对生活的激情">
+    <meta name="description" content="CommonJS规范希望JS能够在任何地方运行   对模块的定义：模块引用，模块定义，模块标识 一个js文件就是一个模块，通过   require()引入外部模块  使用相对路径或绝对路径   .&#x2F; 或 ..&#x2F; var md &#x3D; require(&#39;&#39;) Node中，每个js代码都是运行在一个函数中，而不是全局作用域 如 function (exports,require,modul">
 <meta property="og:type" content="article">
-<meta property="og:title" content="html知识">
-<meta property="og:url" content="http://example.com/2022/10/02/html%E7%9F%A5%E8%AF%86/index.html">
+<meta property="og:title" content="node.js">
+<meta property="og:url" content="http://example.com/2022/10/15/node-js/index.html">
 <meta property="og:site_name" content="bear的博客">
-<meta property="og:description" content="始终保持着对生活的激情">
+<meta property="og:description" content="CommonJS规范希望JS能够在任何地方运行   对模块的定义：模块引用，模块定义，模块标识 一个js文件就是一个模块，通过   require()引入外部模块  使用相对路径或绝对路径   .&#x2F; 或 ..&#x2F; var md &#x3D; require(&#39;&#39;) Node中，每个js代码都是运行在一个函数中，而不是全局作用域 如 function (exports,require,modul">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-10-02T14:13:54.000Z">
-<meta property="article:modified_time" content="2022-10-02T14:13:54.569Z">
+<meta property="article:published_time" content="2022-10-15T07:30:10.000Z">
+<meta property="article:modified_time" content="2022-10-15T07:44:17.033Z">
 <meta property="article:author" content="bear">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/2022/10/02/html%E7%9F%A5%E8%AF%86/">
+<link rel="canonical" href="http://example.com/2022/10/15/node-js/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/10/02/html%E7%9F%A5%E8%AF%86/","path":"2022/10/02/html知识/","title":"html知识"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/10/15/node-js/","path":"2022/10/15/node-js/","title":"node.js"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>html知识 | bear的博客</title>
+<title>node.js | bear的博客</title>
   
 
 
@@ -97,7 +97,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -110,6 +110,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CommonJS%E8%A7%84%E8%8C%83"><span class="nav-number">1.</span> <span class="nav-text">CommonJS规范</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NPM"><span class="nav-number">2.</span> <span class="nav-text">NPM</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -162,7 +163,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/02/html%E7%9F%A5%E8%AF%86/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/15/node-js/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -175,12 +176,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="html知识 | bear的博客">
+      <meta itemprop="name" content="node.js | bear的博客">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          html知识
+          node.js
         </h1>
 
         <div class="post-meta-container">
@@ -190,8 +191,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2022-10-02 22:13:54" itemprop="dateCreated datePublished" datetime="2022-10-02T22:13:54+08:00">2022-10-02</time>
+      <time title="创建时间：2022-10-15 15:30:10 / 修改时间：15:44:17" itemprop="dateCreated datePublished" datetime="2022-10-15T15:30:10+08:00">2022-10-15</time>
     </span>
 
   
@@ -204,7 +206,25 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        
+        <h1 id="CommonJS规范"><a href="#CommonJS规范" class="headerlink" title="CommonJS规范"></a>CommonJS规范</h1><p>希望JS能够在任何地方运行   对模块的定义：模块引用，模块定义，模块标识</p>
+<p>一个<code>js</code>文件就是一个模块，通过   <code>require()</code>引入外部模块  使用相对路径或绝对路径   ./ 或 ../</p>
+<p><code>var md = require(&#39;&#39;)</code></p>
+<p>Node中，每个js代码都是运行在一个函数中，而不是全局作用域 如</p>
+<p><code>function (exports,require,module,_filename,__dirname)&#123;&#125;</code></p>
+<p>一般暴露文件我们使用<code>module.exports = &#123;&#125;</code></p>
+<h1 id="NPM"><a href="#NPM" class="headerlink" title="NPM"></a>NPM</h1><p>是一种实践，可以完成第三方模块的发布，安装，依赖</p>
+<p>命令 ：</p>
+<ol>
+<li><code>npm  -v</code></li>
+<li><code>npm install 包名</code></li>
+<li><code>npm remove 包名</code></li>
+<li><code>npm install 包名 --save   </code>        安装并添加到依赖中，一般为这种</li>
+<li><code>npm install</code>          下载当前项目所依赖的包</li>
+<li><code>npm install   包名  -g   </code> 全局安装包，（一般为一些工具）</li>
+</ol>
+<p>会安装<code>cnpm</code></p>
+<p>使用模块名字引入模块时，查找方式跟作用域链差不多，一层一层往上找</p>
+
     </div>
 
     
@@ -217,13 +237,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/10/02/JS%E7%9F%A5%E8%AF%86/" rel="prev" title="JS知识">
-                  <i class="fa fa-chevron-left"></i> JS知识
+                <a href="/2022/10/14/ajax/" rel="prev" title="ajax">
+                  <i class="fa fa-chevron-left"></i> ajax
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/10/02/vue%E7%9F%A5%E8%AF%86/" rel="next" title="vue知识">
-                  vue知识 <i class="fa fa-chevron-right"></i>
+                <a href="/2022/10/15/Promise/" rel="next" title="Promise">
+                  Promise <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
