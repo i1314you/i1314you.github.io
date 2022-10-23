@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.13.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="MVVMM：模型   就是后端数据    vue中对应data里面的数据 V：视图    前端视图            对应DOM节点，就是模板代码 VM：视图模型   将后端数据与前端视图进行连接，可以实时监测变化           对应vm实例对象 data中所有属性都出现在了vm身上，  模板语法：里面可以放入vm所有属性和vue原型上的属性 数据代理通过一个对象代理对另一个对象中属性的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue2">
+<meta property="og:url" content="http://example.com/2022/10/23/vue2/index.html">
+<meta property="og:site_name" content="bear的博客">
+<meta property="og:description" content="MVVMM：模型   就是后端数据    vue中对应data里面的数据 V：视图    前端视图            对应DOM节点，就是模板代码 VM：视图模型   将后端数据与前端视图进行连接，可以实时监测变化           对应vm实例对象 data中所有属性都出现在了vm身上，  模板语法：里面可以放入vm所有属性和vue原型上的属性 数据代理通过一个对象代理对另一个对象中属性的">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-10-23T03:34:35.000Z">
+<meta property="article:modified_time" content="2022-10-23T03:43:41.178Z">
+<meta property="article:author" content="bear">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2022/10/23/vue2/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/10/23/vue2/","path":"2022/10/23/vue2/","title":"vue2"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>vue2 | bear的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">bear的博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">记录生活的点点滴滴</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MVVM"><span class="nav-number">1.</span> <span class="nav-text">MVVM</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">数据代理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">事件的基本使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7%E5%92%8C%E7%9B%91%E8%A7%86%E5%B1%9E%E6%80%A7"><span class="nav-number">4.</span> <span class="nav-text">计算属性和监视属性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#class%E6%A0%B7%E5%BC%8F"><span class="nav-number">5.</span> <span class="nav-text">class样式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E6%B8%B2%E6%9F%93"><span class="nav-number">6.</span> <span class="nav-text">条件渲染</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%97%E8%A1%A8%E6%B8%B2%E6%9F%93"><span class="nav-number">7.</span> <span class="nav-text">列表渲染</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#key%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-number">8.</span> <span class="nav-text">key的作用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue%E7%9B%91%E6%B5%8B%E6%95%B0%E6%8D%AE"><span class="nav-number">9.</span> <span class="nav-text">Vue监测数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%94%B6%E9%9B%86%E8%A1%A8%E5%8D%95%E6%95%B0%E6%8D%AE"><span class="nav-number">10.</span> <span class="nav-text">收集表单数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-number">11.</span> <span class="nav-text">生命周期</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%84%E4%BB%B6%E4%B8%8E%E6%A8%A1%E5%9D%97"><span class="nav-number">12.</span> <span class="nav-text">组件与模块</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%95%E6%96%87%E4%BB%B6%E7%BB%84%E4%BB%B6"><span class="nav-number">13.</span> <span class="nav-text">单文件组件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E8%84%9A%E6%89%8B%E6%9E%B6%E6%96%87%E4%BB%B6"><span class="nav-number">14.</span> <span class="nav-text">创建脚手架文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ref"><span class="nav-number">15.</span> <span class="nav-text">ref</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#props"><span class="nav-number">16.</span> <span class="nav-text">props</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mixin"><span class="nav-number">17.</span> <span class="nav-text">mixin</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8F%92%E4%BB%B6-%EF%BC%88%E6%88%91%E4%B8%8D%E7%94%A8%EF%BC%89"><span class="nav-number">18.</span> <span class="nav-text">插件 （我不用）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%84%E4%BB%B6%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BA%8B%E4%BB%B6"><span class="nav-number">19.</span> <span class="nav-text">组件自定义事件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%A8%E5%B1%80%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF"><span class="nav-number">20.</span> <span class="nav-text">全局事件总线</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B6%88%E6%81%AF%E8%AE%A2%E9%98%85%E4%B8%8E%E5%8F%91%E5%B8%83"><span class="nav-number">21.</span> <span class="nav-text">消息订阅与发布</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">bear</p>
+  <div class="site-description" itemprop="description">始终保持着对生活的激情</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/23/vue2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="bear">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="bear的博客">
+      <meta itemprop="description" content="始终保持着对生活的激情">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="vue2 | bear的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          vue2
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-10-23 11:34:35 / 修改时间：11:43:41" itemprop="dateCreated datePublished" datetime="2022-10-23T11:34:35+08:00">2022-10-23</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h1><p>M：模型   就是后端数据    <code>vue</code>中对应data里面的数据</p>
+<p>V：视图    前端视图            对应DOM节点，就是模板代码</p>
+<p>VM：视图模型   将后端数据与前端视图进行连接，可以实时监测变化           对应<code>vm</code>实例对象</p>
+<p>data中所有属性都出现在了<code>vm</code>身上，  模板语法：里面可以放入<code>vm</code>所有属性和<code>vue</code>原型上的属性</p>
+<h1 id="数据代理"><a href="#数据代理" class="headerlink" title="数据代理"></a>数据代理</h1><p>通过一个对象代理对另一个对象中属性的操作，本质上是通过<code>Object.defineProperty</code>来实现,见桌面图</p>
+<p><code>vue</code>中的数据代理   通过<code>vm</code>对象来代理data对象中属性的操作，就是将data对象中的数据移到<code>vm</code>上</p>
+<p>目的让编码更加方便   每添加一个<code>vm</code>上的属性，都指定一个getter/setter,这样外边改data里面的数据也会发生改变，一旦data里面的数据发生改变，那么页面就会发生改变，这就是<strong>响应式</strong>，里面其实还有一个Observer(订阅发布模式)</p>
+<h1 id="事件的基本使用"><a href="#事件的基本使用" class="headerlink" title="事件的基本使用"></a>事件的基本使用</h1><p>@xxx绑定事件，其实跟DOM里面的事件一样（监听）               @click=’demo’        @click=’demo($event)’两种效果一致，只是后者可以传参，这里跟DOM监听一样，可以获得   <code>e.target</code></p>
+<p>事件修饰符： <code>@click.prevent=&#39;&#39;</code></p>
+<p>prevent阻止默认事件，stop阻止事件冒泡，once事件只触发一次，capture捕获，</p>
+<p>键盘事件：<code>@keyup=&#39;&#39;    按键别名  回车：enter  如@keyup.enter=&#39;&#39;</code></p>
+<p>delete   esc   space   tab    up   down  left   right  只有触发这些事件才会执行</p>
+<h1 id="计算属性和监视属性"><a href="#计算属性和监视属性" class="headerlink" title="计算属性和监视属性"></a>计算属性和监视属性</h1><p>计算属性：computed 底层借助<code>Object.defineProperty</code>提供的getter和setter     与methods相比，有缓存机制，效率更高，        最终出现在<code>vm</code>上，直接使用即可    简写跟methods里面一样，也是一个函数，但是不是，使用的时候直接在模板语法使用 如  <code>&#123;&#123;fullname&#125;&#125;</code></p>
+<p>监视属性：watch    默认只监视一层，如果监视所有层则   <code>deep:true;</code></p>
+<p>简写属性：跟计算属性一样，写成函数，但是有两个参数   如：<code>isHot(newVal,oldVal)&#123;&#125;</code>只要不写immediate和deep就行</p>
+<p>区别：计算属性通过return返回，不可以开启异步任务，监视属性通过自己写函数，可以开启异步任务，computed能完成的，watch也可以完成，只是有时候computed更简单点</p>
+<p>被<code>vue</code>管理的函数，写成普通函数；不被<code>vue</code>管理的函数（定时器回调，Ajax回调，Promise回调）最好写成箭头函数，这样this的指向才是<code>vm</code>或组件实例对象</p>
+<h1 id="class样式"><a href="#class样式" class="headerlink" title="class样式"></a>class样式</h1><ol>
+<li>字符串写法：         <code>:class=&#39;a&#39;</code>                     </li>
+<li>数组写法：     <code>:class=&#39;arr&#39;</code></li>
+<li>对象写法：     <code>:class=&#39;obj&#39;</code></li>
+</ol>
+<p>以上三种将<code>a,arr,obj</code>全部保存在data里面，可以实现动态绑定</p>
+<p>绑定style样式差不多            内联             <code> :style=&#39;obj&#39;          将这个obj写在data里面</code>           <code>:style=&#39;&#123;fontSize:xxx&#125;&#39;</code></p>
+<h1 id="条件渲染"><a href="#条件渲染" class="headerlink" title="条件渲染"></a>条件渲染</h1><p>v-if   切换频率低的场景，不展示的DOM元素直接被移除</p>
+<p>v-show   频率高的场景，DOM没有被移除，仅仅样式隐藏</p>
+<h1 id="列表渲染"><a href="#列表渲染" class="headerlink" title="列表渲染"></a>列表渲染</h1><p><code>v-for = &#39;(item,index) in xxx&#39; :key=&#39;yyy&#39;   </code>      一般遍历数组和对象</p>
+<h1 id="key的作用"><a href="#key的作用" class="headerlink" title="key的作用"></a>key的作用</h1><p>(见桌面)</p>
+<h1 id="Vue监测数据"><a href="#Vue监测数据" class="headerlink" title="Vue监测数据"></a>Vue监测数据</h1><p><code>vue</code>为监视data中所有的数据，</p>
+<p>1.监测对象中的数据：对象后添加到属性，<code>Vue</code>默认不做响应式</p>
+<p>如果想要响应式，就要     <code> Vue.set(obj,propertyName,val)或vm.$set()</code></p>
+<p>2.监测数组中的数据，做了两件事，调用原生方法对数组进行更新，重新解析模板，进而更新页面</p>
+<p>3.在<code>Vue</code>中修改数组的某个元素要使用改变原数组的7个方法，如push或者<code>Vue.set()</code></p>
+<p>特别注意：<code>Vue.set()不能给vm或vm</code>的根数据对象添加属性，就是说只能给data里面已存在的属性再次添加属性，有个嵌套关系</p>
+<p>数据劫持：为每一个data数据添加getter，setter</p>
+<p>响应式原理：本质上也是<code>Object.defneProperty()</code>见上面数据代理</p>
+<h1 id="收集表单数据"><a href="#收集表单数据" class="headerlink" title="收集表单数据"></a>收集表单数据</h1><p>一般input框，v-model收集的就是value值，用户输入的就是value值</p>
+<p>单选框，需要给单选框radio配置value属性才行，那么v-model收集的就是配置的value属性值</p>
+<p>多选框 checkbox  配置value属性，1.v-model初始值是非数组，那么收集的就是checked（勾选或未勾选）2.如果初始值是数组，那么我们就可以获得value值</p>
+<p>v-model三大修饰符    <code>v-model.lazy       .number       .trim</code></p>
+<p>v-model一般只适用于表单数据收集value</p>
+<h1 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h1><p><code>beforeCreate    </code>           初始化，数据代理还没开始</p>
+<p> created     此时<code>vm</code>可以访问data里面的数据和methods方法</p>
+<p>   <code>beforeMount         </code>未经编译的DOM结构，此时是虚拟DOM</p>
+<p>  mounted               模板解析完成，此处可以进行一系列的操作，如定时器，事件</p>
+<p><code>beforeUpdate </code>          数据是新的，页面是旧的，此时数据和页面不同步 </p>
+<p> updated   根据新数据生成新的虚拟DOM，与旧虚拟DOM比较  完成页面更新，即Model-&gt;View的更新</p>
+<p><code>beforeDestroyed </code>解绑一些事件，如关闭定时器</p>
+<p>​    destroyed  没啥用</p>
+<h1 id="组件与模块"><a href="#组件与模块" class="headerlink" title="组件与模块"></a>组件与模块</h1><p>实现应用中局部功能代码和资源的集合     一个<code>.vue</code>文件就是一个组件</p>
+<p>模块：就是<code>js</code>文件</p>
+<p>创建组件   <code>Vue.extend(&#123;&#125;)</code>       后面我们会简写</p>
+<p>组件本质上是一个<code>VueComponent</code>构造函数，每次创建组件的时候都会生成一个新的构造函数，  如果使用如<school/>那<code>Vue</code>会帮我们创建组件实例对象  即执行 <code> new  VueComponent(options)</code></p>
+<p><code>在组件中，this指向组件实例对象（vc）在new Vue中指向Vue实例对象</code></p>
+<p>一个重要的内置关系      <code> VueComponent.prototype.__proto__==Vue.prototype</code>      让<code>vc</code>可以访问到<code>Vue</code>原型上的属性和方法</p>
+<h1 id="单文件组件"><a href="#单文件组件" class="headerlink" title="单文件组件"></a>单文件组件</h1><p>安装 <code>Vetur</code>插件，可以生成模板，有高亮效果。</p>
+<p>在script标签里面将组件暴露出去      export default{}   //省略了<code>Vue.extend()</code></p>
+<h1 id="创建脚手架文件"><a href="#创建脚手架文件" class="headerlink" title="创建脚手架文件"></a>创建脚手架文件</h1><p>全局安装  <code> npm install -g @vue/cli   (仅第一次执行)           查看是否安装好，vue</code></p>
+<p><code>vue create xxx</code></p>
+<p><code>npm run serve</code></p>
+<p>我们引入的<code>vue</code>文件是残缺的，没包括模板解析器，在main.js里面使用render函数可以渲染App组件，这样就解决了模板问题</p>
+<h1 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h1><p>跟id差不多，就是给html元素也就是p,div打标识，然后可以获取DOM结构</p>
+<p>如果使用ref的话，先打标识，ref=’a’    获取的方式为      <code>this.$refs.a</code>此处this是<code>vc</code>实例对象</p>
+<p>但是有点不同，如果给子组件打标识的话，id最后获取到的是DOM结构，ref获取到的是打标识的那个组件实例对象（有用后面）</p>
+<h1 id="props"><a href="#props" class="headerlink" title="props"></a>props</h1><p>用于父组件向子组件传递数据，如</p>
+<p>父组件中<Student   name='houzi'   age='18'/>  (:age=’18’表示传入数字18）子组件中，也就是Student组件内部中，用  props:[‘name’,’age’]进行接收，这样可以用到模板中，跟data里面的数据一样，保存在<code>vc</code>中，但是props数据不能更改，跟data数据不一样这点，    三种props书写，我们这里简写。</p>
+<p>还可以子组件给父组件传递数据，在父组件中 <Student :getSchoolName='getSchoolName'/>父组件中要定义这个函数，在子组件中用props声明接收这个函数，然后调用这个函数传参，父组件中<code>getSchoolName</code>中的形参就是子组件传递的数据</p>
+<h1 id="mixin"><a href="#mixin" class="headerlink" title="mixin"></a>mixin</h1><p>功能：可以把多个组件共用的配置提取成一个混入对象</p>
+<p>其实就是一个<code>js</code>文件，最后将其暴露出去  定义混合{ data(){},methods:{}}</p>
+<p>使用混入，在组件中，引入，然后借助 <code>  mixins配置项       mixins:[&#39;xxx&#39;]</code>   注意写成数组形式跟props一样,全局混入，在main.js里面写        <code>Vue.mixin()</code>没有引号，其实一般不用这种全局混入</p>
+<h1 id="插件-（我不用）"><a href="#插件-（我不用）" class="headerlink" title="插件 （我不用）"></a>插件 （我不用）</h1><h1 id="组件自定义事件"><a href="#组件自定义事件" class="headerlink" title="组件自定义事件"></a>组件自定义事件</h1><p>给组件用的                      <code>js</code>内置的事件如<code>click,keyup</code>给html元素用的</p>
+<p>1.绑定自定义事件，其实就是跟props差不多，用于子组件给父组件传递数据，在父组件中<code>&lt;Student @demo=&#39;sendStudentName&#39;/&gt;</code>事件回调也就是<code>sendStundentName</code> 在父组件中，子组件触发demo事件那么父组件执行回调，就可以收到参数</p>
+<p>这样就给student子组件绑定了demo事件，在子组件中，通过   this.$emit(‘demo’,参数)       触发自定义事件，然后传参，这里跟props传递数据差不多，只是不用props接收数据。</p>
+<p>2.第二种写法，给<Student ref='student'>给组件打标识，然后再父组件中       mounted里面<code>this.$refs.student.$on(&#39;demo&#39;,this.sendStudentName)</code>   $once触发一次      其实这一步就跟第一步也差不多，不过更加灵活，可以增加异步任务</p>
+<p>解绑自定义事件，在子组件中调用     this.$off()        在组件中@click也是自定义事件，还是需要在子组件中触发click事件</p>
+<h1 id="全局事件总线"><a href="#全局事件总线" class="headerlink" title="全局事件总线"></a>全局事件总线</h1><p>实现任意组件间的通信         </p>
+<p>安装全局事件总线，1.要考虑到要让每个组件都能看到2.要有$on,$emit,$off  API        所以我们将其绑定到<code>vm</code>上面</p>
+<p>在main.js里面     <code>beforeCreate()&#123;           Vue.prototype.$bus = this       &#125;</code>因为此处模板还没有开始渲染，所以添加$bus在<code>Vue</code>的原型对象上，同时  this代表<code>vm</code>，这样所有的<code>vm</code>和所有的<code>vc</code>都可以访问到。</p>
+<p>使用方法：在一个组件中  mounted里面   mounted(){this.$bus.$on(‘hello’,回调函数)}      绑定hello事件，设置回调函数，在回调函数里面可以设置形参进行接收参数  注：最好在<code>beforeDestroy()&#123;this.$bus.$off(&#39;hello&#39;)&#125;</code>   解绑自定义hello事件。</p>
+<p>在另一个组件里面    this.$bus.$emit(‘hello’,xxx)   触发hello事件，将xxx数据传递给上面那个组件</p>
+<h1 id="消息订阅与发布"><a href="#消息订阅与发布" class="headerlink" title="消息订阅与发布"></a>消息订阅与发布</h1><p>安装库       <code>npm i pubsub-js  </code></p>
+<p>引入<code>import   pubsub   from   &#39;pubsub-js&#39;</code>    </p>
+<p>A组件想获得数据  则  在<code>mounted()&#123; this.pid = pubsub.subscripe(&#39;xxx&#39;,this.demo)&#125;``this.demo</code>就是事件回调,但是这里跟全局事件总线不一样，接收两个参数，第一个为事件名字，第二个才是数据</p>
+<p>B组件给A组件传递数据   <code>pubsub.publish(&#39;xxx&#39;,数据)</code></p>
+<p>解绑事件，在A组件里面<code>beforeDestroy()&#123;pubsub.unsubscripe(this.pid)&#125;</code>这里跟全局事件总线不一样，传的是<code>pid</code>不是绑定事件名字。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/10/20/%E9%9D%A2%E8%AF%95%E8%AE%B0%E5%BD%95/" rel="prev" title="面试记录">
+                  <i class="fa fa-chevron-left"></i> 面试记录
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">bear</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</html>

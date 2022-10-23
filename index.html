@@ -120,7 +120,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -159,6 +159,230 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/23/vue2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="bear">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="bear的博客">
+      <meta itemprop="description" content="始终保持着对生活的激情">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | bear的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/10/23/vue2/" class="post-title-link" itemprop="url">vue2</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-10-23 11:34:35 / 修改时间：11:43:41" itemprop="dateCreated datePublished" datetime="2022-10-23T11:34:35+08:00">2022-10-23</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h1><p>M：模型   就是后端数据    <code>vue</code>中对应data里面的数据</p>
+<p>V：视图    前端视图            对应DOM节点，就是模板代码</p>
+<p>VM：视图模型   将后端数据与前端视图进行连接，可以实时监测变化           对应<code>vm</code>实例对象</p>
+<p>data中所有属性都出现在了<code>vm</code>身上，  模板语法：里面可以放入<code>vm</code>所有属性和<code>vue</code>原型上的属性</p>
+<h1 id="数据代理"><a href="#数据代理" class="headerlink" title="数据代理"></a>数据代理</h1><p>通过一个对象代理对另一个对象中属性的操作，本质上是通过<code>Object.defineProperty</code>来实现,见桌面图</p>
+<p><code>vue</code>中的数据代理   通过<code>vm</code>对象来代理data对象中属性的操作，就是将data对象中的数据移到<code>vm</code>上</p>
+<p>目的让编码更加方便   每添加一个<code>vm</code>上的属性，都指定一个getter/setter,这样外边改data里面的数据也会发生改变，一旦data里面的数据发生改变，那么页面就会发生改变，这就是<strong>响应式</strong>，里面其实还有一个Observer(订阅发布模式)</p>
+<h1 id="事件的基本使用"><a href="#事件的基本使用" class="headerlink" title="事件的基本使用"></a>事件的基本使用</h1><p>@xxx绑定事件，其实跟DOM里面的事件一样（监听）               @click=’demo’        @click=’demo($event)’两种效果一致，只是后者可以传参，这里跟DOM监听一样，可以获得   <code>e.target</code></p>
+<p>事件修饰符： <code>@click.prevent=&#39;&#39;</code></p>
+<p>prevent阻止默认事件，stop阻止事件冒泡，once事件只触发一次，capture捕获，</p>
+<p>键盘事件：<code>@keyup=&#39;&#39;    按键别名  回车：enter  如@keyup.enter=&#39;&#39;</code></p>
+<p>delete   esc   space   tab    up   down  left   right  只有触发这些事件才会执行</p>
+<h1 id="计算属性和监视属性"><a href="#计算属性和监视属性" class="headerlink" title="计算属性和监视属性"></a>计算属性和监视属性</h1><p>计算属性：computed 底层借助<code>Object.defineProperty</code>提供的getter和setter     与methods相比，有缓存机制，效率更高，        最终出现在<code>vm</code>上，直接使用即可    简写跟methods里面一样，也是一个函数，但是不是，使用的时候直接在模板语法使用 如  <code>&#123;&#123;fullname&#125;&#125;</code></p>
+<p>监视属性：watch    默认只监视一层，如果监视所有层则   <code>deep:true;</code></p>
+<p>简写属性：跟计算属性一样，写成函数，但是有两个参数   如：<code>isHot(newVal,oldVal)&#123;&#125;</code>只要不写immediate和deep就行</p>
+<p>区别：计算属性通过return返回，不可以开启异步任务，监视属性通过自己写函数，可以开启异步任务，computed能完成的，watch也可以完成，只是有时候computed更简单点</p>
+<p>被<code>vue</code>管理的函数，写成普通函数；不被<code>vue</code>管理的函数（定时器回调，Ajax回调，Promise回调）最好写成箭头函数，这样this的指向才是<code>vm</code>或组件实例对象</p>
+<h1 id="class样式"><a href="#class样式" class="headerlink" title="class样式"></a>class样式</h1><ol>
+<li>字符串写法：         <code>:class=&#39;a&#39;</code>                     </li>
+<li>数组写法：     <code>:class=&#39;arr&#39;</code></li>
+<li>对象写法：     <code>:class=&#39;obj&#39;</code></li>
+</ol>
+<p>以上三种将<code>a,arr,obj</code>全部保存在data里面，可以实现动态绑定</p>
+<p>绑定style样式差不多            内联             <code> :style=&#39;obj&#39;          将这个obj写在data里面</code>           <code>:style=&#39;&#123;fontSize:xxx&#125;&#39;</code></p>
+<h1 id="条件渲染"><a href="#条件渲染" class="headerlink" title="条件渲染"></a>条件渲染</h1><p>v-if   切换频率低的场景，不展示的DOM元素直接被移除</p>
+<p>v-show   频率高的场景，DOM没有被移除，仅仅样式隐藏</p>
+<h1 id="列表渲染"><a href="#列表渲染" class="headerlink" title="列表渲染"></a>列表渲染</h1><p><code>v-for = &#39;(item,index) in xxx&#39; :key=&#39;yyy&#39;   </code>      一般遍历数组和对象</p>
+<h1 id="key的作用"><a href="#key的作用" class="headerlink" title="key的作用"></a>key的作用</h1><p>(见桌面)</p>
+<h1 id="Vue监测数据"><a href="#Vue监测数据" class="headerlink" title="Vue监测数据"></a>Vue监测数据</h1><p><code>vue</code>为监视data中所有的数据，</p>
+<p>1.监测对象中的数据：对象后添加到属性，<code>Vue</code>默认不做响应式</p>
+<p>如果想要响应式，就要     <code> Vue.set(obj,propertyName,val)或vm.$set()</code></p>
+<p>2.监测数组中的数据，做了两件事，调用原生方法对数组进行更新，重新解析模板，进而更新页面</p>
+<p>3.在<code>Vue</code>中修改数组的某个元素要使用改变原数组的7个方法，如push或者<code>Vue.set()</code></p>
+<p>特别注意：<code>Vue.set()不能给vm或vm</code>的根数据对象添加属性，就是说只能给data里面已存在的属性再次添加属性，有个嵌套关系</p>
+<p>数据劫持：为每一个data数据添加getter，setter</p>
+<p>响应式原理：本质上也是<code>Object.defneProperty()</code>见上面数据代理</p>
+<h1 id="收集表单数据"><a href="#收集表单数据" class="headerlink" title="收集表单数据"></a>收集表单数据</h1><p>一般input框，v-model收集的就是value值，用户输入的就是value值</p>
+<p>单选框，需要给单选框radio配置value属性才行，那么v-model收集的就是配置的value属性值</p>
+<p>多选框 checkbox  配置value属性，1.v-model初始值是非数组，那么收集的就是checked（勾选或未勾选）2.如果初始值是数组，那么我们就可以获得value值</p>
+<p>v-model三大修饰符    <code>v-model.lazy       .number       .trim</code></p>
+<p>v-model一般只适用于表单数据收集value</p>
+<h1 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h1><p><code>beforeCreate    </code>           初始化，数据代理还没开始</p>
+<p> created     此时<code>vm</code>可以访问data里面的数据和methods方法</p>
+<p>   <code>beforeMount         </code>未经编译的DOM结构，此时是虚拟DOM</p>
+<p>  mounted               模板解析完成，此处可以进行一系列的操作，如定时器，事件</p>
+<p><code>beforeUpdate </code>          数据是新的，页面是旧的，此时数据和页面不同步 </p>
+<p> updated   根据新数据生成新的虚拟DOM，与旧虚拟DOM比较  完成页面更新，即Model-&gt;View的更新</p>
+<p><code>beforeDestroyed </code>解绑一些事件，如关闭定时器</p>
+<p>​    destroyed  没啥用</p>
+<h1 id="组件与模块"><a href="#组件与模块" class="headerlink" title="组件与模块"></a>组件与模块</h1><p>实现应用中局部功能代码和资源的集合     一个<code>.vue</code>文件就是一个组件</p>
+<p>模块：就是<code>js</code>文件</p>
+<p>创建组件   <code>Vue.extend(&#123;&#125;)</code>       后面我们会简写</p>
+<p>组件本质上是一个<code>VueComponent</code>构造函数，每次创建组件的时候都会生成一个新的构造函数，  如果使用如<school/>那<code>Vue</code>会帮我们创建组件实例对象  即执行 <code> new  VueComponent(options)</code></p>
+<p><code>在组件中，this指向组件实例对象（vc）在new Vue中指向Vue实例对象</code></p>
+<p>一个重要的内置关系      <code> VueComponent.prototype.__proto__==Vue.prototype</code>      让<code>vc</code>可以访问到<code>Vue</code>原型上的属性和方法</p>
+<h1 id="单文件组件"><a href="#单文件组件" class="headerlink" title="单文件组件"></a>单文件组件</h1><p>安装 <code>Vetur</code>插件，可以生成模板，有高亮效果。</p>
+<p>在script标签里面将组件暴露出去      export default{}   //省略了<code>Vue.extend()</code></p>
+<h1 id="创建脚手架文件"><a href="#创建脚手架文件" class="headerlink" title="创建脚手架文件"></a>创建脚手架文件</h1><p>全局安装  <code> npm install -g @vue/cli   (仅第一次执行)           查看是否安装好，vue</code></p>
+<p><code>vue create xxx</code></p>
+<p><code>npm run serve</code></p>
+<p>我们引入的<code>vue</code>文件是残缺的，没包括模板解析器，在main.js里面使用render函数可以渲染App组件，这样就解决了模板问题</p>
+<h1 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h1><p>跟id差不多，就是给html元素也就是p,div打标识，然后可以获取DOM结构</p>
+<p>如果使用ref的话，先打标识，ref=’a’    获取的方式为      <code>this.$refs.a</code>此处this是<code>vc</code>实例对象</p>
+<p>但是有点不同，如果给子组件打标识的话，id最后获取到的是DOM结构，ref获取到的是打标识的那个组件实例对象（有用后面）</p>
+<h1 id="props"><a href="#props" class="headerlink" title="props"></a>props</h1><p>用于父组件向子组件传递数据，如</p>
+<p>父组件中<Student   name='houzi'   age='18'/>  (:age=’18’表示传入数字18）子组件中，也就是Student组件内部中，用  props:[‘name’,’age’]进行接收，这样可以用到模板中，跟data里面的数据一样，保存在<code>vc</code>中，但是props数据不能更改，跟data数据不一样这点，    三种props书写，我们这里简写。</p>
+<p>还可以子组件给父组件传递数据，在父组件中 <Student :getSchoolName='getSchoolName'/>父组件中要定义这个函数，在子组件中用props声明接收这个函数，然后调用这个函数传参，父组件中<code>getSchoolName</code>中的形参就是子组件传递的数据</p>
+<h1 id="mixin"><a href="#mixin" class="headerlink" title="mixin"></a>mixin</h1><p>功能：可以把多个组件共用的配置提取成一个混入对象</p>
+<p>其实就是一个<code>js</code>文件，最后将其暴露出去  定义混合{ data(){},methods:{}}</p>
+<p>使用混入，在组件中，引入，然后借助 <code>  mixins配置项       mixins:[&#39;xxx&#39;]</code>   注意写成数组形式跟props一样,全局混入，在main.js里面写        <code>Vue.mixin()</code>没有引号，其实一般不用这种全局混入</p>
+<h1 id="插件-（我不用）"><a href="#插件-（我不用）" class="headerlink" title="插件 （我不用）"></a>插件 （我不用）</h1><h1 id="组件自定义事件"><a href="#组件自定义事件" class="headerlink" title="组件自定义事件"></a>组件自定义事件</h1><p>给组件用的                      <code>js</code>内置的事件如<code>click,keyup</code>给html元素用的</p>
+<p>1.绑定自定义事件，其实就是跟props差不多，用于子组件给父组件传递数据，在父组件中<code>&lt;Student @demo=&#39;sendStudentName&#39;/&gt;</code>事件回调也就是<code>sendStundentName</code> 在父组件中，子组件触发demo事件那么父组件执行回调，就可以收到参数</p>
+<p>这样就给student子组件绑定了demo事件，在子组件中，通过   this.$emit(‘demo’,参数)       触发自定义事件，然后传参，这里跟props传递数据差不多，只是不用props接收数据。</p>
+<p>2.第二种写法，给<Student ref='student'>给组件打标识，然后再父组件中       mounted里面<code>this.$refs.student.$on(&#39;demo&#39;,this.sendStudentName)</code>   $once触发一次      其实这一步就跟第一步也差不多，不过更加灵活，可以增加异步任务</p>
+<p>解绑自定义事件，在子组件中调用     this.$off()        在组件中@click也是自定义事件，还是需要在子组件中触发click事件</p>
+<h1 id="全局事件总线"><a href="#全局事件总线" class="headerlink" title="全局事件总线"></a>全局事件总线</h1><p>实现任意组件间的通信         </p>
+<p>安装全局事件总线，1.要考虑到要让每个组件都能看到2.要有$on,$emit,$off  API        所以我们将其绑定到<code>vm</code>上面</p>
+<p>在main.js里面     <code>beforeCreate()&#123;           Vue.prototype.$bus = this       &#125;</code>因为此处模板还没有开始渲染，所以添加$bus在<code>Vue</code>的原型对象上，同时  this代表<code>vm</code>，这样所有的<code>vm</code>和所有的<code>vc</code>都可以访问到。</p>
+<p>使用方法：在一个组件中  mounted里面   mounted(){this.$bus.$on(‘hello’,回调函数)}      绑定hello事件，设置回调函数，在回调函数里面可以设置形参进行接收参数  注：最好在<code>beforeDestroy()&#123;this.$bus.$off(&#39;hello&#39;)&#125;</code>   解绑自定义hello事件。</p>
+<p>在另一个组件里面    this.$bus.$emit(‘hello’,xxx)   触发hello事件，将xxx数据传递给上面那个组件</p>
+<h1 id="消息订阅与发布"><a href="#消息订阅与发布" class="headerlink" title="消息订阅与发布"></a>消息订阅与发布</h1><p>安装库       <code>npm i pubsub-js  </code></p>
+<p>引入<code>import   pubsub   from   &#39;pubsub-js&#39;</code>    </p>
+<p>A组件想获得数据  则  在<code>mounted()&#123; this.pid = pubsub.subscripe(&#39;xxx&#39;,this.demo)&#125;``this.demo</code>就是事件回调,但是这里跟全局事件总线不一样，接收两个参数，第一个为事件名字，第二个才是数据</p>
+<p>B组件给A组件传递数据   <code>pubsub.publish(&#39;xxx&#39;,数据)</code></p>
+<p>解绑事件，在A组件里面<code>beforeDestroy()&#123;pubsub.unsubscripe(this.pid)&#125;</code>这里跟全局事件总线不一样，传的是<code>pid</code>不是绑定事件名字。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/20/%E9%9D%A2%E8%AF%95%E8%AE%B0%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="bear">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="bear的博客">
+      <meta itemprop="description" content="始终保持着对生活的激情">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | bear的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/10/20/%E9%9D%A2%E8%AF%95%E8%AE%B0%E5%BD%95/" class="post-title-link" itemprop="url">面试记录</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-10-20 09:25:19 / 修改时间：09:31:17" itemprop="dateCreated datePublished" datetime="2022-10-20T09:25:19+08:00">2022-10-20</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>vue检测数组变化，MVVM，响应式原理，vuex和全局对象，key的作用，在什么生命周期检测DOM变化</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/16/%E9%9D%A2%E8%AF%95%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -187,9 +411,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-10-16 11:23:01 / 修改时间：12:29:54" itemprop="dateCreated datePublished" datetime="2022-10-16T11:23:01+08:00">2022-10-16</time>
+      <time title="创建时间：2022-10-16 11:23:01" itemprop="dateCreated datePublished" datetime="2022-10-16T11:23:01+08:00">2022-10-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-18 21:18:05" itemprop="dateModified" datetime="2022-10-18T21:18:05+08:00">2022-10-18</time>
     </span>
 
   
@@ -218,18 +448,90 @@
 <li>CORS  服务端设置响应头</li>
 <li>Nginx   设置代理服务器</li>
 </ol>
-<h1 id="cookie-storage"><a href="#cookie-storage" class="headerlink" title="cookie  storage"></a>cookie  storage</h1><p>cookie：客户端发请求，服务器响应同时设置Cookie，下次客户端发请求时将携带cookie</p>
+<h1 id="cookie-storage-session-Token"><a href="#cookie-storage-session-Token" class="headerlink" title="cookie  storage   session   Token"></a>cookie  storage   session   Token</h1><p>cookie：客户端发请求，服务器响应同时设置Cookie，下次客户端发请求时将携带cookie,一开始是服务器发送给浏览器的，后面浏览器每次请求都会将cookie传给服务器</p>
 <p>storage保存在本地</p>
+<p>sessio （会话）为了解决cookie不安全引入的，session是保存在服务器的，包括了字符串和有效时间，将其通过cookie发给浏览器，这样浏览器就拿到了session（字符串）这样账号和密码就保存在了服务里或数据库里</p>
+<p>Token  session会导致服务器压力大，因为保存了大量的session，所有引入token，服务器不需要保存，只要保存token签名的密文，浏览器将其token存储下来，当然token的安全性还是挺高的，包含三部分</p>
 <h1 id="创建对象方法"><a href="#创建对象方法" class="headerlink" title="创建对象方法"></a>创建对象方法</h1><p>fetch也可以发送Ajax请求，基于promise，但是没有JSON转换，</p>
 <ol>
 <li> 使用字面量</li>
-<li>使用原型</li>
+<li>使用原型   new Object()</li>
 <li>Object.create()</li>
 <li>工厂模式   用构造函数取代，有一些缺点</li>
 <li>构造函数</li>
 <li>class</li>
 </ol>
-<h1 id="防抖与节流"><a href="#防抖与节流" class="headerlink" title="防抖与节流"></a>防抖与节流</h1><h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><h1 id="promise核心代码"><a href="#promise核心代码" class="headerlink" title="promise核心代码"></a>promise核心代码</h1><h1 id="浅拷贝深拷贝，实现深拷贝方法"><a href="#浅拷贝深拷贝，实现深拷贝方法" class="headerlink" title="浅拷贝深拷贝，实现深拷贝方法"></a>浅拷贝深拷贝，实现深拷贝方法</h1><h1 id="图片懒加载"><a href="#图片懒加载" class="headerlink" title="图片懒加载"></a>图片懒加载</h1>
+<h1 id="防抖与节流"><a href="#防抖与节流" class="headerlink" title="防抖与节流"></a>防抖与节流</h1><p>节流：在规定的时间只会触发一次，只有时间到了才会再次执行</p>
+<h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><p><code>let d = /^1[34578]\d&#123;9&#125;$/</code></p>
+<p><code>console.log(d.test(15901234567))</code></p>
+<p>方法：test()          exec()方法用于检索字符串中的正则表达式的匹配。如果字符串中有匹配的值返回该匹配值，否则返回 null。</p>
+<p>字符串也有一些方法：search()返回第一个找到的索引，match()跟exec()差不多，可以返回一个或多个</p>
+<table>
+<thead>
+<tr>
+<th>[<a target="_blank" rel="noopener" href="https://www.runoob.com/jsref/jsref-regexp-charset.html">abc]</a></th>
+<th>查找方括号之间的任何字符。</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>[<a target="_blank" rel="noopener" href="https://www.runoob.com/jsref/jsref-regexp-charset-not.html">^abc]</a></td>
+<td>查找任何不在方括号之间的字符。</td>
+</tr>
+<tr>
+<td>[0-9]</td>
+<td>查找任何从 0 至 9 的数字。</td>
+</tr>
+<tr>
+<td>[a-z]</td>
+<td>查找任何从小写 a 到小写 z 的字符。</td>
+</tr>
+<tr>
+<td>[A-Z]</td>
+<td>查找任何从大写 A 到大写 Z 的字符。</td>
+</tr>
+<tr>
+<td>[A-z]</td>
+<td>查找任何从大写 A 到小写 z 的字符。</td>
+</tr>
+<tr>
+<td>[adgk]</td>
+<td>查找给定集合内的任何字符。</td>
+</tr>
+<tr>
+<td>[^adgk]</td>
+<td>查找给定集合外的任何字符。</td>
+</tr>
+<tr>
+<td>(red|blue|green)</td>
+<td>查找任何指定的选项。</td>
+</tr>
+</tbody></table>
+<p>\s 空白字符  {}表示取多个，也可以表示数目范围{4,9}      ？表示可有可无   *表示0个或多个  +表示一个或多个</p>
+<h1 id="promise核心代码"><a href="#promise核心代码" class="headerlink" title="promise核心代码"></a>promise核心代码</h1><h1 id="浅拷贝深拷贝，实现深拷贝方法"><a href="#浅拷贝深拷贝，实现深拷贝方法" class="headerlink" title="浅拷贝深拷贝，实现深拷贝方法"></a>浅拷贝深拷贝，实现深拷贝方法</h1><h1 id="图片懒加载"><a href="#图片懒加载" class="headerlink" title="图片懒加载"></a>图片懒加载</h1><h1 id="事件冒泡与捕获"><a href="#事件冒泡与捕获" class="headerlink" title="事件冒泡与捕获"></a>事件冒泡与捕获</h1><p>e.target     点击了哪个元素就返回哪个元素  </p>
+<p>this   绑定了点击事件，那么就是他   其实就是ul  li  里面   this就是ul     e.target就是li</p>
+<p>事件对象就是  event简写为e   在onclick或者监听的时候产生的</p>
+<p>默认为冒泡，从下到上进行执行，</p>
+<p>事件监听出现的冒泡，阻止冒泡  e.stopPropagation()//不考虑兼容性</p>
+<p>如果同时出现冒泡与捕获，则先捕获，在执行目标也就是点的那个，在执行冒泡，（见桌面图）</p>
+<h1 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h1><p>原理：给父节点添加侦听器，利用事件冒泡影响每一个节点   </p>
+<p>就比如说ul  和  li   设置ul 监听   点击  li  然后就会通过事件冒泡触发ul点击事件  如果想获取li   就用e.target</p>
+<p>排他思想：例如给一组button添加样式，可以for循环加绑定事件  然后再次for循环将全部颜色置为0，单独设置那个点击元素的颜色，用this</p>
+<h1 id="new对象过程"><a href="#new对象过程" class="headerlink" title="new对象过程"></a>new对象过程</h1><p>1.创建一个对象</p>
+<p>2.son.<strong>proto</strong>==Mother.prototype</p>
+<p>3.新对象和函数调用的this进行绑定</p>
+<p>4.执行构造函数代码</p>
+<p>5.如果函数没有返回值，那么就会自动返回这个新对象（return this）</p>
+<h1 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h1><p>闭包定义：函数嵌套，内部函数使用了外部函数变量，调用外部函数</p>
+<p>问题：闭包可能会引起内存泄漏，让某些值不会被释放，   但闭包让外部访问私有变量成为了可能，同时外部不能修改私有变量，只要return就行     将 f=null清除内存泄漏</p>
+<p>生命周期：开始就不说了，1.闭包函数里面没有return直接调用外部函数，执行完之后被回收2.外部函数return内部函数，定义了一个变量如 let f = fn()  f()       执行完之后f仍然存在（全局变量），出现内存泄漏，此时闭包还在      用 f=null，释放闭包，也阻止了内存泄漏</p>
+<p>闭包存在关键点：使用一个变量接受嵌套的内部函数，让它在执行完之后不会成为垃圾对象，闭包从而得以存在</p>
+<p>内存泄漏与内存溢出  内存：暂时存放CPU中的运算数据</p>
+<p>垃圾回收，定时清除闲置资源的一种机制  如标记清除法  标记内存中的所有变量</p>
+<h1 id="执行上下文和执行上下文栈"><a href="#执行上下文和执行上下文栈" class="headerlink" title="执行上下文和执行上下文栈"></a>执行上下文和执行上下文栈</h1><p>执行上下文：全局执行上下文，函数执行上下文，eval执行上下文（一般不用）其实就是变量提升，注意函数提升比变量提升优先，</p>
+<p><strong>函数提升优先级高于变量提升，且不会被同名变量声明时覆盖，但是会被同名变量赋值后覆盖</strong></p>
+<p>​    a();  // 2<br>​     var a = function(){  // 看成是一个函数赋值给变量a<br>​        console.log(1)<br>​     }<br>​     a(); // 1<br>​     function a(){<br>​        console.log(2)<br>​     }<br>​     a(); // 1</p>
+<p>执行上下文栈：将执行上下文压入栈中，调用函数就产生一个执行上下文，其实只需要理解函数的调用就行了，理解递归就行</p>
+
       
     </div>
 
@@ -793,234 +1095,6 @@
 <li>二叉树节点的深度：指从根节点到该节点的最长简单路径边的条数。采用前序遍历，从上到下进行遍历，求二叉树最大深度，此时我们也可以采用后序遍历求高度实际上就是就深度，从下往上，把节点值一层一层往上面加</li>
 <li>二叉树节点的高度：指从该节点到叶子节点的最长简单路径边的条数。采用后序遍历，从下到上逐层返回，如判断平衡二叉树</li>
 </ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/03/es6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="bear">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="bear的博客">
-      <meta itemprop="description" content="始终保持着对生活的激情">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | bear的博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/10/03/es6/" class="post-title-link" itemprop="url">es6</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-10-03 10:05:25" itemprop="dateCreated datePublished" datetime="2022-10-03T10:05:25+08:00">2022-10-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-10-16 12:33:15" itemprop="dateModified" datetime="2022-10-16T12:33:15+08:00">2022-10-16</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="1-暂时性死区"><a href="#1-暂时性死区" class="headerlink" title="1.暂时性死区"></a>1.暂时性死区</h1><p>意思就是 let 和 <code>const </code>声明的变量在块级作用域中，在声明之前不能使用，使用了就会报错   主要是为了减少运行时错误</p>
-<p>块级作用域的出现，使得IIFE变得不再需要了</p>
-<h1 id="2-声明变量的6种方法"><a href="#2-声明变量的6种方法" class="headerlink" title="2.声明变量的6种方法"></a>2.声明变量的6种方法</h1><p><code>var</code> , function , let , <code>const</code> , import , class</p>
-<h1 id="3-顶层对象的属性"><a href="#3-顶层对象的属性" class="headerlink" title="3.顶层对象的属性"></a>3.顶层对象的属性</h1><p>ES5中，<code>window.a</code> == a         其实这种设计不好，最大的败笔之一，因为程序员可能不小心创建了全局变量，同时顶层对象属性是到处可以读写的，这样不适合模块化编程。 所有ES6规定，let ，<code>const </code>, class声明的全局变量不属于顶层对象的属性</p>
-<h1 id="4-变量的结构赋值"><a href="#4-变量的结构赋值" class="headerlink" title="4.变量的结构赋值"></a>4.变量的结构赋值</h1><p>数组的解构赋值：</p>
-<p>用法：let [a,b,c] = [1,2,3]      必须具备  Iterator  接口，才能进行解构赋值</p>
-<p>对象的解构赋值：</p>
-<p><code>let [foo,bar] = &#123;foo:&#39;aaa&#39;,bar:&#39;bbb&#39;&#125;,</code>      变量必须与属性同名才能获取值</p>
-<p><code>let &#123;foo:foo,bar:bar&#125; = &#123;foo:&#39;aaa&#39;,bar:&#39;bbb&#39;&#125;</code>      前面是同名属性，真正赋值的是后面，后面才是变量</p>
-<p>字符串的解构赋值：</p>
-<p><code>let &#123;a,b,c&#125; = &#39;hel&#39;</code></p>
-<p><code>let &#123;length:len&#125; = &#39;hello&#39;     len//5  </code>      类似数组的对象都有一个length属性</p>
-<p>应用场景：</p>
-<ol>
-<li>交换变量值： [x,y] = [y,x]</li>
-<li>遍历map解构，如       for(let [key] of map){}    for(let [key,value] of map){}    for(let [value] of map){}</li>
-<li>输入模块的指定方法     如： <code> const &#123;reqGetGoodList&#125; = require()</code></li>
-</ol>
-<h1 id="5-模板字符串"><a href="#5-模板字符串" class="headerlink" title="5.模板字符串"></a>5.模板字符串</h1><p>​             相当于可以将变量加入字符串中：```${x}+${y}`` `</p>
-<h1 id="6-箭头函数"><a href="#6-箭头函数" class="headerlink" title="6.箭头函数"></a>6.箭头函数</h1><ol>
-<li>没有自己this</li>
-<li>不可以new，就是不能当构造函数</li>
-<li>没有<code>argumengts</code>对象</li>
-<li>不能使用<code>yield</code>命令</li>
-</ol>
-<h1 id="7-扩展运算符"><a href="#7-扩展运算符" class="headerlink" title="7.扩展运算符"></a>7.扩展运算符</h1><ol>
-<li> 复制数组，对数组进行一个克隆生成新的数组        a2.contact(a1)         a2 = […a1]    […a2] = a1  解构赋值加扩展运算符</li>
-<li>合并数组       […a1,…a2]</li>
-<li>可以将字符串转为真正的数组       […’he’]      输出    [‘h’,’e’]</li>
-<li>任何实现了Iterator 接口的对象都可以转换成真正的数组</li>
-<li>map和set 也是类数组</li>
-</ol>
-<p><code>Array.from()</code>用于将两类对象转为真正的数组，类似数组对象和可遍历对象，Iterator</p>
-<p><code>Object.assign(target,source1,source2)</code>用于对象的合并      将源对象的可枚举属性添加到目标对象上</p>
-<p>指数运算符：a ** a   特点为右结合，注意， a ** b ** c = a ** (b ** c)</p>
-<p><code>res.push([...arr])</code>往一个数组里面加入一个数组可以这样理解，因为push只能添加单个元素，所以要将数组中每个元素拆出来，最后将其当成一个数组添加进去，这样会生成一个二维数组，<code>res.push(...arr)</code>此处是将数组<code>arr</code>的元素添加到res里面，结果还是一维数组</p>
-<h1 id="8-Symbol"><a href="#8-Symbol" class="headerlink" title="8.Symbol"></a>8.Symbol</h1><p>对象属性名都是字符串，这容易造成属性名的冲突。保证每个属性的名字都是独一无二的就好了，这样就从根本上防止属性名的冲突。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> s = <span class="title class_">Symbol</span>();注意不要<span class="keyword">new</span> 	因为他是基本类型</span><br></pre></td></tr></table></figure>
-
-<h1 id="9-set和map"><a href="#9-set和map" class="headerlink" title="9.set和map"></a>9.set和map</h1><p>注：类似数组</p>
-<p>set:</p>
-<p>属性：size 返回成员总数</p>
-<p>方法：add delete has clear          <strong><code>keys()</code>，<code>values()</code>，<code>entries()</code></strong>         <code>keys</code>方法和<code>values</code>方法的行为完全一致。</p>
-<p>Set 结构的实例与数组一样，也拥有<code>forEach</code>方法，用于对每个成员执行某种操作，</p>
-<p>应用：</p>
-<ol>
-<li><p> 去重</p>
-</li>
-<li><p>使用 Set 可以很容易地实现并集（Union）、交集（Intersect）和差集</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="keyword">new</span> <span class="title class_">Set</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]);</span><br><span class="line"><span class="keyword">let</span> b = <span class="keyword">new</span> <span class="title class_">Set</span>([<span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>]);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 并集</span></span><br><span class="line"><span class="keyword">let</span> union = <span class="keyword">new</span> <span class="title class_">Set</span>([...a, ...b]);</span><br><span class="line"><span class="comment">// Set &#123;1, 2, 3, 4&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 交集</span></span><br><span class="line"><span class="keyword">let</span> intersect = <span class="keyword">new</span> <span class="title class_">Set</span>([...a].<span class="title function_">filter</span>(<span class="function"><span class="params">x</span> =&gt;</span> b.<span class="title function_">has</span>(x)));  此处使用[...a]是将其转为数组，同时前面有set是因为b.<span class="property">has</span>要用set</span><br><span class="line"><span class="comment">// set &#123;2, 3&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// （a 相对于 b 的）差集</span></span><br><span class="line"><span class="keyword">let</span> difference = <span class="keyword">new</span> <span class="title class_">Set</span>([...a].<span class="title function_">filter</span>(<span class="function"><span class="params">x</span> =&gt;</span> !b.<span class="title function_">has</span>(x)));</span><br><span class="line"><span class="comment">// Set &#123;1&#125;</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-<p>不重要了解：<code>WeakSet</code> 结构与 Set 类似，也是不重复的值的集合。但是，它与 Set 有两个区别。</p>
-<p>首先，<code>WeakSet</code> 的成员只能是对象，而不能是其他类型的值。</p>
-<p>3.当我们使用set对数组去重的时候有点不一样                                 /要把数组转换成字符串， 因为你可以自己试试 new Set([1,2]).has([1,2]) 输出为false，但是 new Set([‘1,2’]).has(‘1,2’) 输出为true，所以这里要转换成字符串</p>
-<p><code>const str = path.join();</code>//这里path为一个数组</p>
-<p><code>if(!set.has(str))&#123;</code></p>
-<p>​      <code>  res.push([...path]);</code>  //这里应该知道吧，push只能插入单个元素，所以将path用…</p>
-<p>​        <code>set.add(str);</code></p>
-<p>​      <code>&#125;</code></p>
-<p>map:</p>
-<p>JavaScript 的对象（Object），本质上是键值对的集合（Hash 结构），但是传统上只能用字符串当作键。这给它的使用带来了很大的限制。为了解决这个问题，ES6 提供了 Map 数据结构。它类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键。</p>
-<p>属性：size</p>
-<p>方法：<strong>set(key, value)</strong>          <strong>get(key)</strong>       <strong>has(key)</strong>        <strong>delete(key)</strong>     <strong>clear()</strong>    map一切操作都是基于键的</p>
-<p>Map 结构原生提供三个遍历器生成函数和一个遍历方法。</p>
-<ul>
-<li><code>Map.prototype.keys()</code>：返回键名的遍历器。</li>
-<li><code>Map.prototype.values()</code>：返回键值的遍历器。</li>
-<li><code>Map.prototype.entries()</code>：返回所有成员的遍历器。</li>
-<li><code>Map.prototype.forEach()</code>：遍历 Map 的所有成员。</li>
-</ul>
-<p><strong>（1）Map 转为数组</strong>  使用扩展运算符（<code>...</code>）</p>
-<p><strong>（2）数组 转为 Map</strong>  将数组传入 Map 构造函数，就可以转为 Map。</p>
-<p><code>WeakMap</code>只接受对象作为键名（<code>null</code>除外），不接受其他类型的值作为键名。</p>
-<h1 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h1><h1 id="Reflect"><a href="#Reflect" class="headerlink" title="Reflect"></a>Reflect</h1><h1 id="Array-from"><a href="#Array-from" class="headerlink" title="Array.from()"></a>Array.from()</h1><p>将类数组变为数组，必须有length属性，属性名必须为数值型或者字符串型的数字   </p>
-<p>可以接收第二个参数，类似于map方法</p>
-<p>将字符串转为数组</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/02/vue%E7%9F%A5%E8%AF%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="bear">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="bear的博客">
-      <meta itemprop="description" content="始终保持着对生活的激情">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | bear的博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/10/02/vue%E7%9F%A5%E8%AF%86/" class="post-title-link" itemprop="url">vue知识</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-10-02 22:14:06" itemprop="dateCreated datePublished" datetime="2022-10-02T22:14:06+08:00">2022-10-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-10-14 20:13:26" itemprop="dateModified" datetime="2022-10-14T20:13:26+08:00">2022-10-14</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="computed-methods"><a href="#computed-methods" class="headerlink" title="computed methods"></a>computed methods</h1><p>computed具有缓存  功能都是一样的</p>
-<p><img src="C:\Users\33834\Desktop\博客图片\vue表单.jpg"></p>
 
       
     </div>

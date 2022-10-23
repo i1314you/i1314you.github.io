@@ -28,7 +28,7 @@
 <meta property="og:description" content="计算机网络TCP   三次握手：客户端发送SYN同步请求，服务端发送SYN+ACK，客户端发送ACK 四次挥手：客户端发送FIN+ACK，服务端发送ACK，服务端发送FIN+ACK，客户端发送ACK 不是两次握手，防止已失效的连接请求报文传到TCP服务器，出现错误 常用的状态码：1xx  表示请求还在进行中 200成功   201已创建请求    204无内容返回 3xx重定向   301永久移动">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-10-16T03:23:01.000Z">
-<meta property="article:modified_time" content="2022-10-16T04:29:54.108Z">
+<meta property="article:modified_time" content="2022-10-18T13:18:05.427Z">
 <meta property="article:author" content="bear">
 <meta name="twitter:card" content="summary">
 
@@ -110,7 +110,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C"><span class="nav-number">1.</span> <span class="nav-text">计算机网络</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B7%A8%E5%9F%9F%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">2.</span> <span class="nav-text">跨域的解决方案</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cookie-storage"><span class="nav-number">3.</span> <span class="nav-text">cookie  storage</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">创建对象方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81"><span class="nav-number">5.</span> <span class="nav-text">防抖与节流</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">6.</span> <span class="nav-text">正则表达式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#promise%E6%A0%B8%E5%BF%83%E4%BB%A3%E7%A0%81"><span class="nav-number">7.</span> <span class="nav-text">promise核心代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%85%E6%8B%B7%E8%B4%9D%E6%B7%B1%E6%8B%B7%E8%B4%9D%EF%BC%8C%E5%AE%9E%E7%8E%B0%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%96%B9%E6%B3%95"><span class="nav-number">8.</span> <span class="nav-text">浅拷贝深拷贝，实现深拷贝方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD"><span class="nav-number">9.</span> <span class="nav-text">图片懒加载</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C"><span class="nav-number">1.</span> <span class="nav-text">计算机网络</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B7%A8%E5%9F%9F%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">2.</span> <span class="nav-text">跨域的解决方案</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cookie-storage-session-Token"><span class="nav-number">3.</span> <span class="nav-text">cookie  storage   session   Token</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">创建对象方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81"><span class="nav-number">5.</span> <span class="nav-text">防抖与节流</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">6.</span> <span class="nav-text">正则表达式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#promise%E6%A0%B8%E5%BF%83%E4%BB%A3%E7%A0%81"><span class="nav-number">7.</span> <span class="nav-text">promise核心代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%85%E6%8B%B7%E8%B4%9D%E6%B7%B1%E6%8B%B7%E8%B4%9D%EF%BC%8C%E5%AE%9E%E7%8E%B0%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%96%B9%E6%B3%95"><span class="nav-number">8.</span> <span class="nav-text">浅拷贝深拷贝，实现深拷贝方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD"><span class="nav-number">9.</span> <span class="nav-text">图片懒加载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E5%86%92%E6%B3%A1%E4%B8%8E%E6%8D%95%E8%8E%B7"><span class="nav-number">10.</span> <span class="nav-text">事件冒泡与捕获</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98"><span class="nav-number">11.</span> <span class="nav-text">事件委托</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#new%E5%AF%B9%E8%B1%A1%E8%BF%87%E7%A8%8B"><span class="nav-number">12.</span> <span class="nav-text">new对象过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%97%AD%E5%8C%85"><span class="nav-number">13.</span> <span class="nav-text">闭包</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E5%92%8C%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E6%A0%88"><span class="nav-number">14.</span> <span class="nav-text">执行上下文和执行上下文栈</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -123,7 +123,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -191,9 +191,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-10-16 11:23:01 / 修改时间：12:29:54" itemprop="dateCreated datePublished" datetime="2022-10-16T11:23:01+08:00">2022-10-16</time>
+      <time title="创建时间：2022-10-16 11:23:01" itemprop="dateCreated datePublished" datetime="2022-10-16T11:23:01+08:00">2022-10-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-18 21:18:05" itemprop="dateModified" datetime="2022-10-18T21:18:05+08:00">2022-10-18</time>
     </span>
 
   
@@ -222,18 +228,90 @@
 <li>CORS  服务端设置响应头</li>
 <li>Nginx   设置代理服务器</li>
 </ol>
-<h1 id="cookie-storage"><a href="#cookie-storage" class="headerlink" title="cookie  storage"></a>cookie  storage</h1><p>cookie：客户端发请求，服务器响应同时设置Cookie，下次客户端发请求时将携带cookie</p>
+<h1 id="cookie-storage-session-Token"><a href="#cookie-storage-session-Token" class="headerlink" title="cookie  storage   session   Token"></a>cookie  storage   session   Token</h1><p>cookie：客户端发请求，服务器响应同时设置Cookie，下次客户端发请求时将携带cookie,一开始是服务器发送给浏览器的，后面浏览器每次请求都会将cookie传给服务器</p>
 <p>storage保存在本地</p>
+<p>sessio （会话）为了解决cookie不安全引入的，session是保存在服务器的，包括了字符串和有效时间，将其通过cookie发给浏览器，这样浏览器就拿到了session（字符串）这样账号和密码就保存在了服务里或数据库里</p>
+<p>Token  session会导致服务器压力大，因为保存了大量的session，所有引入token，服务器不需要保存，只要保存token签名的密文，浏览器将其token存储下来，当然token的安全性还是挺高的，包含三部分</p>
 <h1 id="创建对象方法"><a href="#创建对象方法" class="headerlink" title="创建对象方法"></a>创建对象方法</h1><p>fetch也可以发送Ajax请求，基于promise，但是没有JSON转换，</p>
 <ol>
 <li> 使用字面量</li>
-<li>使用原型</li>
+<li>使用原型   new Object()</li>
 <li>Object.create()</li>
 <li>工厂模式   用构造函数取代，有一些缺点</li>
 <li>构造函数</li>
 <li>class</li>
 </ol>
-<h1 id="防抖与节流"><a href="#防抖与节流" class="headerlink" title="防抖与节流"></a>防抖与节流</h1><h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><h1 id="promise核心代码"><a href="#promise核心代码" class="headerlink" title="promise核心代码"></a>promise核心代码</h1><h1 id="浅拷贝深拷贝，实现深拷贝方法"><a href="#浅拷贝深拷贝，实现深拷贝方法" class="headerlink" title="浅拷贝深拷贝，实现深拷贝方法"></a>浅拷贝深拷贝，实现深拷贝方法</h1><h1 id="图片懒加载"><a href="#图片懒加载" class="headerlink" title="图片懒加载"></a>图片懒加载</h1>
+<h1 id="防抖与节流"><a href="#防抖与节流" class="headerlink" title="防抖与节流"></a>防抖与节流</h1><p>节流：在规定的时间只会触发一次，只有时间到了才会再次执行</p>
+<h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><p><code>let d = /^1[34578]\d&#123;9&#125;$/</code></p>
+<p><code>console.log(d.test(15901234567))</code></p>
+<p>方法：test()          exec()方法用于检索字符串中的正则表达式的匹配。如果字符串中有匹配的值返回该匹配值，否则返回 null。</p>
+<p>字符串也有一些方法：search()返回第一个找到的索引，match()跟exec()差不多，可以返回一个或多个</p>
+<table>
+<thead>
+<tr>
+<th>[<a target="_blank" rel="noopener" href="https://www.runoob.com/jsref/jsref-regexp-charset.html">abc]</a></th>
+<th>查找方括号之间的任何字符。</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>[<a target="_blank" rel="noopener" href="https://www.runoob.com/jsref/jsref-regexp-charset-not.html">^abc]</a></td>
+<td>查找任何不在方括号之间的字符。</td>
+</tr>
+<tr>
+<td>[0-9]</td>
+<td>查找任何从 0 至 9 的数字。</td>
+</tr>
+<tr>
+<td>[a-z]</td>
+<td>查找任何从小写 a 到小写 z 的字符。</td>
+</tr>
+<tr>
+<td>[A-Z]</td>
+<td>查找任何从大写 A 到大写 Z 的字符。</td>
+</tr>
+<tr>
+<td>[A-z]</td>
+<td>查找任何从大写 A 到小写 z 的字符。</td>
+</tr>
+<tr>
+<td>[adgk]</td>
+<td>查找给定集合内的任何字符。</td>
+</tr>
+<tr>
+<td>[^adgk]</td>
+<td>查找给定集合外的任何字符。</td>
+</tr>
+<tr>
+<td>(red|blue|green)</td>
+<td>查找任何指定的选项。</td>
+</tr>
+</tbody></table>
+<p>\s 空白字符  {}表示取多个，也可以表示数目范围{4,9}      ？表示可有可无   *表示0个或多个  +表示一个或多个</p>
+<h1 id="promise核心代码"><a href="#promise核心代码" class="headerlink" title="promise核心代码"></a>promise核心代码</h1><h1 id="浅拷贝深拷贝，实现深拷贝方法"><a href="#浅拷贝深拷贝，实现深拷贝方法" class="headerlink" title="浅拷贝深拷贝，实现深拷贝方法"></a>浅拷贝深拷贝，实现深拷贝方法</h1><h1 id="图片懒加载"><a href="#图片懒加载" class="headerlink" title="图片懒加载"></a>图片懒加载</h1><h1 id="事件冒泡与捕获"><a href="#事件冒泡与捕获" class="headerlink" title="事件冒泡与捕获"></a>事件冒泡与捕获</h1><p>e.target     点击了哪个元素就返回哪个元素  </p>
+<p>this   绑定了点击事件，那么就是他   其实就是ul  li  里面   this就是ul     e.target就是li</p>
+<p>事件对象就是  event简写为e   在onclick或者监听的时候产生的</p>
+<p>默认为冒泡，从下到上进行执行，</p>
+<p>事件监听出现的冒泡，阻止冒泡  e.stopPropagation()//不考虑兼容性</p>
+<p>如果同时出现冒泡与捕获，则先捕获，在执行目标也就是点的那个，在执行冒泡，（见桌面图）</p>
+<h1 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h1><p>原理：给父节点添加侦听器，利用事件冒泡影响每一个节点   </p>
+<p>就比如说ul  和  li   设置ul 监听   点击  li  然后就会通过事件冒泡触发ul点击事件  如果想获取li   就用e.target</p>
+<p>排他思想：例如给一组button添加样式，可以for循环加绑定事件  然后再次for循环将全部颜色置为0，单独设置那个点击元素的颜色，用this</p>
+<h1 id="new对象过程"><a href="#new对象过程" class="headerlink" title="new对象过程"></a>new对象过程</h1><p>1.创建一个对象</p>
+<p>2.son.<strong>proto</strong>==Mother.prototype</p>
+<p>3.新对象和函数调用的this进行绑定</p>
+<p>4.执行构造函数代码</p>
+<p>5.如果函数没有返回值，那么就会自动返回这个新对象（return this）</p>
+<h1 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h1><p>闭包定义：函数嵌套，内部函数使用了外部函数变量，调用外部函数</p>
+<p>问题：闭包可能会引起内存泄漏，让某些值不会被释放，   但闭包让外部访问私有变量成为了可能，同时外部不能修改私有变量，只要return就行     将 f=null清除内存泄漏</p>
+<p>生命周期：开始就不说了，1.闭包函数里面没有return直接调用外部函数，执行完之后被回收2.外部函数return内部函数，定义了一个变量如 let f = fn()  f()       执行完之后f仍然存在（全局变量），出现内存泄漏，此时闭包还在      用 f=null，释放闭包，也阻止了内存泄漏</p>
+<p>闭包存在关键点：使用一个变量接受嵌套的内部函数，让它在执行完之后不会成为垃圾对象，闭包从而得以存在</p>
+<p>内存泄漏与内存溢出  内存：暂时存放CPU中的运算数据</p>
+<p>垃圾回收，定时清除闲置资源的一种机制  如标记清除法  标记内存中的所有变量</p>
+<h1 id="执行上下文和执行上下文栈"><a href="#执行上下文和执行上下文栈" class="headerlink" title="执行上下文和执行上下文栈"></a>执行上下文和执行上下文栈</h1><p>执行上下文：全局执行上下文，函数执行上下文，eval执行上下文（一般不用）其实就是变量提升，注意函数提升比变量提升优先，</p>
+<p><strong>函数提升优先级高于变量提升，且不会被同名变量声明时覆盖，但是会被同名变量赋值后覆盖</strong></p>
+<p>​    a();  // 2<br>​     var a = function(){  // 看成是一个函数赋值给变量a<br>​        console.log(1)<br>​     }<br>​     a(); // 1<br>​     function a(){<br>​        console.log(2)<br>​     }<br>​     a(); // 1</p>
+<p>执行上下文栈：将执行上下文压入栈中，调用函数就产生一个执行上下文，其实只需要理解函数的调用就行了，理解递归就行</p>
+
     </div>
 
     
@@ -251,6 +329,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2022/10/20/%E9%9D%A2%E8%AF%95%E8%AE%B0%E5%BD%95/" rel="next" title="面试记录">
+                  面试记录 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
