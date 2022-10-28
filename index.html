@@ -120,7 +120,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -159,6 +159,130 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/27/vue3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="bear">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="bear的博客">
+      <meta itemprop="description" content="始终保持着对生活的激情">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | bear的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/10/27/vue3/" class="post-title-link" itemprop="url">vue3</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-10-27 17:12:59" itemprop="dateCreated datePublished" datetime="2022-10-27T17:12:59+08:00">2022-10-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-28 23:35:32" itemprop="dateModified" datetime="2022-10-28T23:35:32+08:00">2022-10-28</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="创建工程文件"><a href="#创建工程文件" class="headerlink" title="创建工程文件"></a>创建工程文件</h1><p>使用<code>vue-cli   或者vite</code>新一代前端构建工具，不过我现在不用</p>
+<h1 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h1><p>main.js里面引入的不是<code>Vue</code>的构造函数了，是一个名为<code>createApp</code>的工厂函数   安装开发者工具</p>
+<h1 id="setup"><a href="#setup" class="headerlink" title="setup"></a>setup</h1><p>配置项：组件中所有的数据，方法都要配置在<code>setup</code>里面,这个配置项是一个函数，同时要将这些数据，方法进行返回才行通过return，而且我们这里返回一个对象就行。在模板中可以直接使用，setup不能是一个<code>async</code>函数，这样拿数据的时候不方便</p>
+<h1 id="ref函数"><a href="#ref函数" class="headerlink" title="ref函数"></a>ref函数</h1><p>作用：定义一个响应式的数据    使用之前必须先引入        <code>import &#123;ref&#125; from &#39;vue&#39;</code></p>
+<p>语法:   <code>const xxx = ref(123)</code>  在<code>js</code>中操作数据的话必须  <code> xxx.value</code>   但是在模板中操作数据，则   <div>xxx(这里其实是模板字符串我没写)</div>  不需要直接<code>xxx.value</code>了，而是xxx就行</p>
+<p>接受的数据可以是基本类型也可以是对象类型</p>
+<p>基本类型数据靠   <code>Object.defineProperty()的get与set完成</code>  对象类型的数据，借助了vue3.0中的一个新函数   <code>reactive</code>函数</p>
+<h1 id="reactive函数"><a href="#reactive函数" class="headerlink" title="reactive函数"></a>reactive函数</h1><p>作用：定义一个对象类型的响应式数据（基本类型别用，用ref函数)  也要引用 <code> import &#123;reactive&#125; from &#39;vue&#39;</code></p>
+<p><code>const xxx = reactive(被代理对象)</code>接收一个对象或数组，返回一个代理对象（Proxy对象）</p>
+<p>reactive定义的响应式数据是深层次的，内部基于Proxy实现</p>
+<h1 id="vue3响应式原理"><a href="#vue3响应式原理" class="headerlink" title="vue3响应式原理"></a>vue3响应式原理</h1><p><code>vue2</code> 存在问题，新值，删除属性页面不更新，直接通过下标更改数组，页面不更新， 通过this.$set或$delete，通过重写数组7大方法</p>
+<p>vue3  通过Proxy，里面也有<code>get,set，deleteProperty</code>通过Reflect对被代理的对象属性进行操作    返回：<code>return Reflect.get()  .set()  .deleteProperty</code>其实一般为  Object，但是会出现一些问题，封装底层代码的时候，使用Reflect犯错误也没事，避免使用了try catch</p>
+<p>reactive定义的数据不需要.value</p>
+<h1 id="setup注意点"><a href="#setup注意点" class="headerlink" title="setup注意点"></a>setup注意点</h1><p>在<code>beforeCreate</code>之前执行一次，this是<code>undefined</code></p>
+<p>setup(){}  参数   props:值为对象，组件外部传递过来，且组件内部声明接收了的属性</p>
+<p>context上下文对象：  attrs:对象，组件外部传递过来，但是props里面没有接收，相当于  vue2里面  this.$attrs</p>
+<p>​                                    slots:收到的插槽内容，相当于  this.$slots</p>
+<p>​                                    emit:分发自定义事件的函数，相当于  this.$emit</p>
+<h1 id="computed"><a href="#computed" class="headerlink" title="computed"></a>computed</h1><p>需要引入在setup里面配置     import {computed} from <code>&#39;vue&#39;</code></p>
+<p><code>let fullname = computed(()=&gt;&#123;&#125;)   </code>computed是一个函数，里面还有一个函数，箭头函数和普通函数都没事，因为this为<code>undefined</code></p>
+<p>这是简写，还有set和get写法，这样读和写都能看到   别忘了将其return返回</p>
+<h1 id="wacth"><a href="#wacth" class="headerlink" title="wacth"></a>wacth</h1><p>也需要引入    使用：   watch(sum,(new,old)=&gt;{},{配置对象})   接收三个参数，第一个监视的值，第二个回调函数，包含new和old，第三个配置对象  如  <code>immediate:true,deep=true</code></p>
+<p>监视ref的数据时，监视一个  直接写  sum   监视多个，写   [sum,age]   写成数组形式</p>
+<p>监视reactive数据，  无法获得<code>oldValue</code>，强制开启深度监视,deep配置无效，监视reactive定义的响应式数据里面的某个对象的属性，在deep有效  一般监视写成   person,（一般这种最多使用）    如果想监视person某个属性则    第一个参数为   <code> ()=&gt;person.age</code>,如果是多个属性   []  写成数组形式，如果监视person里面对象的属性，则<code>oldValue</code>也会有效</p>
+<p>通过这些避错，我选择将 基本类型用  ref   ,引用类型用   reactive    ,监视的时候都不要   .value   这样都不会出现问题</p>
+<h1 id="watchEffect"><a href="#watchEffect" class="headerlink" title="watchEffect"></a>watchEffect</h1><p>也需要引入，是一个函数，   不用指明监视那个属性，监视回调中用到了那个属性，那就会进行监视， <code>  watchEffect(()=&gt;&#123;&#125;)</code>只要一个参数，它一开会自动执行一次   相当于添加了  immediate=true</p>
+<p>有点像computed   但computed注重结果需要return    他不需要return注重过程  只要里面的数据发生变化，那就会执行相应的回调</p>
+<h1 id="vue3生命周期"><a href="#vue3生命周期" class="headerlink" title="vue3生命周期"></a>vue3生命周期</h1><p>可以直接当成配置项，跟Vue2一样不过有两个生命周期函数不一样    <code>beforeUnmount    unmounted</code>这两个替换了vue2的最后两个函数</p>
+<p>如果想当成组合函数使用，必须先引入，import    写在setup里面       全部变名字，但是只有6个，<code>beforeCreate,created</code>没有，而且其余6个生命周期函数必须加    on     书写形式    <code> onMounted(()=&gt;&#123;&#125;)</code>  他是一个函数，里面有个回调函数</p>
+<h1 id="自定义hook函数"><a href="#自定义hook函数" class="headerlink" title="自定义hook函数"></a>自定义hook函数</h1><p>本质上是一个函数，吧setup函数中使用的组合式API进行了封装，类似于vue2中的<code>mixin </code> ，可以复用代码</p>
+<p>就是一个<code>.js</code>文件   需要暴露出去   export  default  function(){        return point;  }里面的代码跟setup里面的代码是意义的，别忘记了最后将其return出去    同时如果用到了一些ref等等，需要引入              注意注意，hook本质上是一个函数，所有引入给其他组件的时候需要调用</p>
+<h1 id="toRef与toRefs"><a href="#toRef与toRefs" class="headerlink" title="toRef与toRefs"></a>toRef与toRefs</h1><p>作用：创建ref  对象，语法：<code>const  name = toRef(person,&#39;name&#39;)</code>   因为我们在模板里面写的时候需要用到name属性，一般我们为                </p>
+<p><code>person.name</code>  但是感觉这样有点麻烦，我们就借助了<code>toRef  </code>可以直接用   name   这样name也是响应式的，也会引起person里面的属性变化    在  return  里面返回     return<code> &#123;  name:toRef(person,&#39;name&#39;)   &#125;</code>  我们这里不用ref是因为，虽然生成了ref，但是生成的是新的ref对象，他的改变不会影响    原来   setup  里面  person的name变化  </p>
+<p><code>toRefs </code> 返回多个ref对象       <code>     toRefs(person)    return&#123;     ...toRefs(person)   &#125;</code>    注意用…因为对象里面不能为对象，所以将其展开，就会生成一系列key-value    但是只能生成第一层的  ref     如age,name  ,a:{b}   这样模板里面使用  则  <code>age  name   a.b</code></p>
+<h1 id="下面组合式API了解即可"><a href="#下面组合式API了解即可" class="headerlink" title="下面组合式API了解即可"></a>下面组合式API了解即可</h1><h1 id="shallowReatcive-shallowRef"><a href="#shallowReatcive-shallowRef" class="headerlink" title="shallowReatcive  shallowRef"></a>shallowReatcive  shallowRef</h1><p><code>shallowReactive</code>  只处理对象最外层属性的响应式，（浅响应式） 可以实现性能优化</p>
+<p><code>shallowRef  </code>  只处理基本类型响应式（跟ref差不多）， 不进行对象的相应式处理，也就是说改了页面也不更新，也不求助于reactive</p>
+<h1 id="readonly-shallowReadonly"><a href="#readonly-shallowReadonly" class="headerlink" title="readonly  shallowReadonly"></a>readonly  shallowReadonly</h1><p><code>readonly</code>让一个相应式的数据变为只读的（深只读)就是每个属性都不能改</p>
+<p><code>shallowReadonly </code>  浅只读，第一层数据不能改，后面可以改</p>
+<p>应用场景：别人给我数据的时候，我这边不应该改数据，</p>
+<h1 id="toRaw-markRaw"><a href="#toRaw-markRaw" class="headerlink" title="toRaw  markRaw"></a>toRaw  markRaw</h1><p><code>toRaw</code>  将  reactive生成的响应式对象变成普通对象，，这样对对象操作，不会引起页面更新</p>
+<p><code>markRaw  </code> 标记一个对象，让其无法成为响应式对象，  如有些第三方库不应该为响应式，当渲染不可变大数据时，跳过响应式可以提高性能</p>
+<p><code>customRef  </code> :自定义ref</p>
+<h1 id="provide-inject"><a href="#provide-inject" class="headerlink" title="provide inject"></a>provide inject</h1><p>实现祖与后代组件间的通信   祖组件中  provide(‘car’,car)    第一个参数表示传入参数名字，第二个参数表示传入的东西                            后代组件    <code>const car = inject(&#39;car&#39;)</code> </p>
+<h1 id="相应式数据的判断"><a href="#相应式数据的判断" class="headerlink" title="相应式数据的判断"></a>相应式数据的判断</h1><p><code>isRef  isReactive isReadonly isProxy</code>检查一个对象是否是reactive或<code>readonly</code>方法创建的代理</p>
+<h1 id="组合式API优势"><a href="#组合式API优势" class="headerlink" title="组合式API优势"></a>组合式API优势</h1><p>vue2里面为配置对象API</p>
+<p>vue3为组合API，这样可以让相关功能代码更加有序组织在一起  其实为设置  hook函数，直接引入，方便点</p>
+<h1 id="新的组件"><a href="#新的组件" class="headerlink" title="新的组件"></a>新的组件</h1><p>vue2里面必须有根标签，但是vue3里面可以没有，其实会添加一个Fragment虚拟元素，减少标签层级</p>
+<p>teleport组件  <teleport to='body'></teleport>   可以让里面的元素传送走，to表示传送到某个地方，这样我们可以更方便的在某个参考系使用  这是移到了body里面，相当于body进行定位</p>
+<h1 id="vue3其他改变"><a href="#vue3其他改变" class="headerlink" title="vue3其他改变"></a>vue3其他改变</h1><p>移出过滤器  将<code>Vue.config</code>  或者其他方法移到了   <code>app.config   app.mixin</code>等等之类的</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/23/vue2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -187,9 +311,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-10-23 11:34:35 / 修改时间：12:57:02" itemprop="dateCreated datePublished" datetime="2022-10-23T11:34:35+08:00">2022-10-23</time>
+      <time title="创建时间：2022-10-23 11:34:35" itemprop="dateCreated datePublished" datetime="2022-10-23T11:34:35+08:00">2022-10-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-27 17:10:50" itemprop="dateModified" datetime="2022-10-27T17:10:50+08:00">2022-10-27</time>
     </span>
 
   
@@ -288,6 +418,51 @@
 <p>B组件给A组件传递数据   <code>pubsub.publish(&#39;xxx&#39;,数据)</code></p>
 <p>解绑事件，在A组件里面<code>beforeDestroy()&#123;pubsub.unsubscripe(this.pid)&#125;</code>这里跟全局事件总线不一样，传的是<code>pid</code>不是绑定事件名字。</p>
 <h1 id="nextTick"><a href="#nextTick" class="headerlink" title="nextTick"></a>nextTick</h1><p><code>this.$nextTick(回调函数)</code>  在下一次DOM更新结束后执行其指定的回调，因为执行顺序是先执行methods里面的方法，在渲染模板，如果我们没有<code>nextTick</code>那么后面即使改了DOM某些操作，也不会生效，所有需要先渲染模板，在执行指定回调，用<code>setTimeout</code>也可以</p>
+<h1 id="动画效果"><a href="#动画效果" class="headerlink" title="动画效果"></a>动画效果</h1><p>这边直接使用外部第三方库就行   如引入    animate.css然后再看教程使用</p>
+<h1 id="axios"><a href="#axios" class="headerlink" title="axios"></a>axios</h1><p>对Ajax的二次封装是一个库  通过  <code>npm i aixos</code>     引入     用的话 <code>  import   axios    from   &#39;axios&#39;</code></p>
+<h1 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h1><p><code>jsonp      cors     代理服务器</code>在vue.config.js里面配置</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">devServer</span>: &#123;</span><br><span class="line">    <span class="attr">proxy</span>: &#123;</span><br><span class="line">      <span class="string">&#x27;/api&#x27;</span>: &#123;   <span class="comment">//请求前缀</span></span><br><span class="line">        <span class="attr">target</span>: <span class="string">&#x27;&lt;url&gt;&#x27;</span>,<span class="comment">//请求路径，</span></span><br><span class="line">        <span class="attr">pathRewrite</span>:&#123;<span class="string">&#x27;^/api&#x27;</span>:<span class="string">&#x27;&#x27;</span>&#125;<span class="comment">//碰到api将其变成空的</span></span><br><span class="line">        <span class="attr">ws</span>: <span class="literal">true</span>,<span class="comment">//可要可不要</span></span><br><span class="line">        <span class="attr">changeOrigin</span>: <span class="literal">true</span><span class="comment">//可要可不要</span></span><br><span class="line">      &#125;,</span><br></pre></td></tr></table></figure>
+
+<h1 id="插槽"><a href="#插槽" class="headerlink" title="插槽"></a>插槽</h1><p>默认插槽，具名插值，作用域插值（太麻烦，反正我现在不用）</p>
+<p>让父组件可以向子组件指定位置插入html结构，也是一种组件间通信方式，适用于父组件-》子组件</p>
+<p>父组件中     <Category><div></div></Category></p>
+<p>子组件中      <div><slot>这里面可以放默认内容</slot></div>此时父组件中里面的内容会出现在slot这里</p>
+<p>具名插槽：给slot添加标签       <slot name='a'></slot></p>
+<p>父组件中         <div slot='a'></div></p>
+<p>这样可以让父组件中内容精确放在子组件中</p>
+<h1 id="vuex"><a href="#vuex" class="headerlink" title="vuex"></a>vuex</h1><p>集中式管理数据的一个插件，可以多组件共享数据，用于任意间组件通信   vue2用vuex3,vue3用vuex4</p>
+<p>安装<code>vuex     npm i vuex@3</code> 引入   <code>impor     使用  Vue.use(vuex)</code>         需要先引入store   在<code>vm上写入store配置项</code></p>
+<p>再index.js里面   <code>Vue.use(Vuex)</code>   然后<code>export default new Vuex.Store(&#123;&#125;)</code>这样<code>vm和vc</code>上面都有store属性了</p>
+<p>store配置项：state,mutations,actions,getters(对state里面的数据进行加工，有点像计算属性，接收一个形参，该新参是state，想要获得数据，则<code>state.sum</code>,要有return返回结果)</p>
+<p><code>mapState,mapGetters </code>      要先从<code>vuex</code>里面引入</p>
+<p>在computed里面定义,      <code>...mapState([&#39;sum&#39;,&#39;a])</code>数组里面写法比较简单，要写成’’形式，不然会报错，当然还有对象写法麻烦，要写…表示一个对象里面不能添加另一个对象，必须要使用扩展运算符</p>
+<p><code>mapMutations,mapActions</code> 在methods里面使用</p>
+<p><code>...mapActions([&#39;add&#39;])</code>此时调用store里面的add方法，在组件中也要使用add方法，同时传参也是在组件中传，如add(2)</p>
+<p>模块化命名空间  添加  <code>namespaced:true;</code>  一个模块里面有4个<code>vuex</code>里面的方法   在<code>new Vuex.Store(&#123;modules:&#123;&#125;&#125;)</code>添加modules属性，</p>
+<p>读取state数据 <code>...mapState(&#39;a&#39;,[&#39;sum&#39;,&#39;b])</code></p>
+<p>读取getter数据同理</p>
+<p><code>this.$store.dispatch(&#39;a/add&#39;,person)</code>    person表示传递的参数   <code>...mapActions(&#39;a&#39;,[&#39;add&#39;])</code>     传参也是在组件中传 add(2)</p>
+<h1 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h1><p><code>vue-router</code>插件库  单页面应用，不会刷新页面  路由理解：就是一组key-value,如/class=&gt;组件</p>
+<p>安装  ，<code>npm i vue-router引入  import VueRouter from &#39;vue-router&#39;  使用Vue.use(VueRouter)</code></p>
+<p>配置路由  <code>export default new VueRouter(&#123;routes:[&#123;&#125;]&#125;) 里面的配置项不会看文档吧，对了   注意点，一定要在vm里面配置router</code></p>
+<p>实现切换：<router-link to='/about'></router-link>相当于a标签</p>
+<p>展示位置   <router-view></router-view></p>
+<p>路由组件放在pages里面，非路由组件放在components里面，切换路由组件，默认被销毁，每个组件都有$route属性，整个应用只有一个router,可以通过$router获得</p>
+<p>嵌套路由，多级路由，   就是在某一个路由里面添加children配置项，跳转路径要写完整路径，包含前面路由的路径也要写</p>
+<p>路由传参：1.:to=’{path:   ,query:{}}’传递query参数在router-link里面写   接收参数 <code>$route.query.</code></p>
+<p>2.params参数，使用前，在路由配置项path里面必须占位如  path=’/detail/:id/:title’     在to里面一般写法为/hello/a直接这样写就行，当前前面还有路径       注意如果用to的对象写法必须  写成   name简化路由，给路由命名，不能写成path</p>
+<p>简化路由给路由配置项里面添加   name属性  在后面编程式路由导航尽量都写name属性</p>
+<p>路由里面还有  props配置，三种写法，同时要在组件里面接收，其实就是让路由组件更方便接收参数，反正我不用，还是直接this.$route.query.id吧</p>
+<p><router-link replace></router-link>默认为push模式，就是有历史记录，有回退上一级路由功能，如果添加replace属性，就没有回退功能</p>
+<p>编程式路由导航，让路由跳转更灵活    如  <code>this.$router.push(&#123;name:&#39;&#39;,params:&#123;&#125;&#125;),还有this.$router.replace</code></p>
+<p>还有<code>this.$router.forward(),back(),go()</code>一般不用</p>
+<p>缓存路由组件：让不展示的路由组件保持挂载，不被销毁，如组件里面有input框，我们一般要进行缓存</p>
+<p><keep-alive include='News'><router-view></router-view></keep-alive>注意是在router-view外面添加keep-alive里面有include属性,注意里面的名字为组件的名字，即要给想要缓存的组件配置name属性，除了配置的组件，其他组件都不缓存</p>
+<p>缓存一个组件include=’News’,缓存多个组件:include=’[‘News’,’Message’]’</p>
+<p>两个新的生命周期函数      activated  deactivated路由组件被激活或者失活时触发，专门为路由组件的生命周期函数，因为在某些转态即使清空定时器，如果保持keep-alive那定时器也不会被销毁，会缓存，所有用这两个生命周期函数</p>
+<p>路由守卫：就是在路由跳转的时候增加权限   全局守卫：<code>router.beforeEach((to,from,next)=&gt;&#123;&#125;)to表示当前组件，from表示跳转组件，next放行   ``afterEach </code>没有next          独享守卫：在   routes里面配置，跟path同级，<code>beforeEnter</code>  组件内守卫，在路由组件里面配置</p>
+<p>路由器两种工作模式   跟routes平级，mode:’history’  默认hash模式，出现   /#   兼容性好，后面的值不会传给服务器</p>
+<p>history模式，美观，兼容性略差，应用部署时需要后端人员支持，解决刷新页面出现问题</p>
 
       
     </div>
@@ -725,6 +900,13 @@
 
       <time title="创建时间：2022-10-15 15:30:38" itemprop="dateCreated datePublished" datetime="2022-10-15T15:30:38+08:00">2022-10-15</time>
     </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-23 13:46:56" itemprop="dateModified" datetime="2022-10-23T13:46:56+08:00">2022-10-23</time>
+    </span>
 
   
 </div>
@@ -736,7 +918,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          
+          <p>axios外部库，需要npm安装和引入        axios.get().then(()=&gt;{},()=&gt;{})</p>
+<p>注意里面两个箭头函数，第一个表示成功，传入response形参，获得的数据应该是response.data，因为返回给我们的是对象，我们需要拿到data数据</p>
+<p>const axios = require(‘axios’);CommonJS语法引入   还有 <code>  import   axios    from   &#39;axios&#39;</code></p>
+
       
     </div>
 
@@ -1023,79 +1208,6 @@
 <h1 id="解决跨域"><a href="#解决跨域" class="headerlink" title="解决跨域"></a>解决跨域</h1><p>JSONP 只支持get请求</p>
 <p>有一些标签具有跨域能力，如<code>img,link,iframe,script</code>JSONP就是借助于script</p>
 <p>CORS  不需要客户端操作，在服务器进行，其实就是设置请求头就行</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="bear">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="bear的博客">
-      <meta itemprop="description" content="始终保持着对生活的激情">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | bear的博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/10/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" class="post-title-link" itemprop="url">数据结构与算法</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-10-04 21:32:38 / 修改时间：22:58:14" itemprop="dateCreated datePublished" datetime="2022-10-04T21:32:38+08:00">2022-10-04</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h1><ul>
-<li>二叉树节点的深度：指从根节点到该节点的最长简单路径边的条数。采用前序遍历，从上到下进行遍历，求二叉树最大深度，此时我们也可以采用后序遍历求高度实际上就是就深度，从下往上，把节点值一层一层往上面加</li>
-<li>二叉树节点的高度：指从该节点到叶子节点的最长简单路径边的条数。采用后序遍历，从下到上逐层返回，如判断平衡二叉树</li>
-</ul>
 
       
     </div>

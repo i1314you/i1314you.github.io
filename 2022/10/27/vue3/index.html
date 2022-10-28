@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.13.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="创建工程文件使用vue-cli   或者vite新一代前端构建工具，不过我现在不用 架构main.js里面引入的不是Vue的构造函数了，是一个名为createApp的工厂函数   安装开发者工具 setup配置项：组件中所有的数据，方法都要配置在setup里面,这个配置项是一个函数，同时要将这些数据，方法进行返回才行通过return，而且我们这里返回一个对象就行。在模板中可以直接使用，setup不">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue3">
+<meta property="og:url" content="http://example.com/2022/10/27/vue3/index.html">
+<meta property="og:site_name" content="bear的博客">
+<meta property="og:description" content="创建工程文件使用vue-cli   或者vite新一代前端构建工具，不过我现在不用 架构main.js里面引入的不是Vue的构造函数了，是一个名为createApp的工厂函数   安装开发者工具 setup配置项：组件中所有的数据，方法都要配置在setup里面,这个配置项是一个函数，同时要将这些数据，方法进行返回才行通过return，而且我们这里返回一个对象就行。在模板中可以直接使用，setup不">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-10-27T09:12:59.000Z">
+<meta property="article:modified_time" content="2022-10-28T15:35:32.714Z">
+<meta property="article:author" content="bear">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2022/10/27/vue3/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/10/27/vue3/","path":"2022/10/27/vue3/","title":"vue3"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>vue3 | bear的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">bear的博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">记录生活的点点滴滴</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%B7%A5%E7%A8%8B%E6%96%87%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">创建工程文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9E%B6%E6%9E%84"><span class="nav-number">2.</span> <span class="nav-text">架构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#setup"><span class="nav-number">3.</span> <span class="nav-text">setup</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ref%E5%87%BD%E6%95%B0"><span class="nav-number">4.</span> <span class="nav-text">ref函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#reactive%E5%87%BD%E6%95%B0"><span class="nav-number">5.</span> <span class="nav-text">reactive函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vue3%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86"><span class="nav-number">6.</span> <span class="nav-text">vue3响应式原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#setup%E6%B3%A8%E6%84%8F%E7%82%B9"><span class="nav-number">7.</span> <span class="nav-text">setup注意点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#computed"><span class="nav-number">8.</span> <span class="nav-text">computed</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#wacth"><span class="nav-number">9.</span> <span class="nav-text">wacth</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#watchEffect"><span class="nav-number">10.</span> <span class="nav-text">watchEffect</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vue3%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-number">11.</span> <span class="nav-text">vue3生命周期</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89hook%E5%87%BD%E6%95%B0"><span class="nav-number">12.</span> <span class="nav-text">自定义hook函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#toRef%E4%B8%8EtoRefs"><span class="nav-number">13.</span> <span class="nav-text">toRef与toRefs</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%8B%E9%9D%A2%E7%BB%84%E5%90%88%E5%BC%8FAPI%E4%BA%86%E8%A7%A3%E5%8D%B3%E5%8F%AF"><span class="nav-number">14.</span> <span class="nav-text">下面组合式API了解即可</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#shallowReatcive-shallowRef"><span class="nav-number">15.</span> <span class="nav-text">shallowReatcive  shallowRef</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#readonly-shallowReadonly"><span class="nav-number">16.</span> <span class="nav-text">readonly  shallowReadonly</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#toRaw-markRaw"><span class="nav-number">17.</span> <span class="nav-text">toRaw  markRaw</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#provide-inject"><span class="nav-number">18.</span> <span class="nav-text">provide inject</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%BA%94%E5%BC%8F%E6%95%B0%E6%8D%AE%E7%9A%84%E5%88%A4%E6%96%AD"><span class="nav-number">19.</span> <span class="nav-text">相应式数据的判断</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%84%E5%90%88%E5%BC%8FAPI%E4%BC%98%E5%8A%BF"><span class="nav-number">20.</span> <span class="nav-text">组合式API优势</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B0%E7%9A%84%E7%BB%84%E4%BB%B6"><span class="nav-number">21.</span> <span class="nav-text">新的组件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vue3%E5%85%B6%E4%BB%96%E6%94%B9%E5%8F%98"><span class="nav-number">22.</span> <span class="nav-text">vue3其他改变</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">bear</p>
+  <div class="site-description" itemprop="description">始终保持着对生活的激情</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/27/vue3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="bear">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="bear的博客">
+      <meta itemprop="description" content="始终保持着对生活的激情">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="vue3 | bear的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          vue3
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-10-27 17:12:59" itemprop="dateCreated datePublished" datetime="2022-10-27T17:12:59+08:00">2022-10-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-28 23:35:32" itemprop="dateModified" datetime="2022-10-28T23:35:32+08:00">2022-10-28</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="创建工程文件"><a href="#创建工程文件" class="headerlink" title="创建工程文件"></a>创建工程文件</h1><p>使用<code>vue-cli   或者vite</code>新一代前端构建工具，不过我现在不用</p>
+<h1 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h1><p>main.js里面引入的不是<code>Vue</code>的构造函数了，是一个名为<code>createApp</code>的工厂函数   安装开发者工具</p>
+<h1 id="setup"><a href="#setup" class="headerlink" title="setup"></a>setup</h1><p>配置项：组件中所有的数据，方法都要配置在<code>setup</code>里面,这个配置项是一个函数，同时要将这些数据，方法进行返回才行通过return，而且我们这里返回一个对象就行。在模板中可以直接使用，setup不能是一个<code>async</code>函数，这样拿数据的时候不方便</p>
+<h1 id="ref函数"><a href="#ref函数" class="headerlink" title="ref函数"></a>ref函数</h1><p>作用：定义一个响应式的数据    使用之前必须先引入        <code>import &#123;ref&#125; from &#39;vue&#39;</code></p>
+<p>语法:   <code>const xxx = ref(123)</code>  在<code>js</code>中操作数据的话必须  <code> xxx.value</code>   但是在模板中操作数据，则   <div>xxx(这里其实是模板字符串我没写)</div>  不需要直接<code>xxx.value</code>了，而是xxx就行</p>
+<p>接受的数据可以是基本类型也可以是对象类型</p>
+<p>基本类型数据靠   <code>Object.defineProperty()的get与set完成</code>  对象类型的数据，借助了vue3.0中的一个新函数   <code>reactive</code>函数</p>
+<h1 id="reactive函数"><a href="#reactive函数" class="headerlink" title="reactive函数"></a>reactive函数</h1><p>作用：定义一个对象类型的响应式数据（基本类型别用，用ref函数)  也要引用 <code> import &#123;reactive&#125; from &#39;vue&#39;</code></p>
+<p><code>const xxx = reactive(被代理对象)</code>接收一个对象或数组，返回一个代理对象（Proxy对象）</p>
+<p>reactive定义的响应式数据是深层次的，内部基于Proxy实现</p>
+<h1 id="vue3响应式原理"><a href="#vue3响应式原理" class="headerlink" title="vue3响应式原理"></a>vue3响应式原理</h1><p><code>vue2</code> 存在问题，新值，删除属性页面不更新，直接通过下标更改数组，页面不更新， 通过this.$set或$delete，通过重写数组7大方法</p>
+<p>vue3  通过Proxy，里面也有<code>get,set，deleteProperty</code>通过Reflect对被代理的对象属性进行操作    返回：<code>return Reflect.get()  .set()  .deleteProperty</code>其实一般为  Object，但是会出现一些问题，封装底层代码的时候，使用Reflect犯错误也没事，避免使用了try catch</p>
+<p>reactive定义的数据不需要.value</p>
+<h1 id="setup注意点"><a href="#setup注意点" class="headerlink" title="setup注意点"></a>setup注意点</h1><p>在<code>beforeCreate</code>之前执行一次，this是<code>undefined</code></p>
+<p>setup(){}  参数   props:值为对象，组件外部传递过来，且组件内部声明接收了的属性</p>
+<p>context上下文对象：  attrs:对象，组件外部传递过来，但是props里面没有接收，相当于  vue2里面  this.$attrs</p>
+<p>​                                    slots:收到的插槽内容，相当于  this.$slots</p>
+<p>​                                    emit:分发自定义事件的函数，相当于  this.$emit</p>
+<h1 id="computed"><a href="#computed" class="headerlink" title="computed"></a>computed</h1><p>需要引入在setup里面配置     import {computed} from <code>&#39;vue&#39;</code></p>
+<p><code>let fullname = computed(()=&gt;&#123;&#125;)   </code>computed是一个函数，里面还有一个函数，箭头函数和普通函数都没事，因为this为<code>undefined</code></p>
+<p>这是简写，还有set和get写法，这样读和写都能看到   别忘了将其return返回</p>
+<h1 id="wacth"><a href="#wacth" class="headerlink" title="wacth"></a>wacth</h1><p>也需要引入    使用：   watch(sum,(new,old)=&gt;{},{配置对象})   接收三个参数，第一个监视的值，第二个回调函数，包含new和old，第三个配置对象  如  <code>immediate:true,deep=true</code></p>
+<p>监视ref的数据时，监视一个  直接写  sum   监视多个，写   [sum,age]   写成数组形式</p>
+<p>监视reactive数据，  无法获得<code>oldValue</code>，强制开启深度监视,deep配置无效，监视reactive定义的响应式数据里面的某个对象的属性，在deep有效  一般监视写成   person,（一般这种最多使用）    如果想监视person某个属性则    第一个参数为   <code> ()=&gt;person.age</code>,如果是多个属性   []  写成数组形式，如果监视person里面对象的属性，则<code>oldValue</code>也会有效</p>
+<p>通过这些避错，我选择将 基本类型用  ref   ,引用类型用   reactive    ,监视的时候都不要   .value   这样都不会出现问题</p>
+<h1 id="watchEffect"><a href="#watchEffect" class="headerlink" title="watchEffect"></a>watchEffect</h1><p>也需要引入，是一个函数，   不用指明监视那个属性，监视回调中用到了那个属性，那就会进行监视， <code>  watchEffect(()=&gt;&#123;&#125;)</code>只要一个参数，它一开会自动执行一次   相当于添加了  immediate=true</p>
+<p>有点像computed   但computed注重结果需要return    他不需要return注重过程  只要里面的数据发生变化，那就会执行相应的回调</p>
+<h1 id="vue3生命周期"><a href="#vue3生命周期" class="headerlink" title="vue3生命周期"></a>vue3生命周期</h1><p>可以直接当成配置项，跟Vue2一样不过有两个生命周期函数不一样    <code>beforeUnmount    unmounted</code>这两个替换了vue2的最后两个函数</p>
+<p>如果想当成组合函数使用，必须先引入，import    写在setup里面       全部变名字，但是只有6个，<code>beforeCreate,created</code>没有，而且其余6个生命周期函数必须加    on     书写形式    <code> onMounted(()=&gt;&#123;&#125;)</code>  他是一个函数，里面有个回调函数</p>
+<h1 id="自定义hook函数"><a href="#自定义hook函数" class="headerlink" title="自定义hook函数"></a>自定义hook函数</h1><p>本质上是一个函数，吧setup函数中使用的组合式API进行了封装，类似于vue2中的<code>mixin </code> ，可以复用代码</p>
+<p>就是一个<code>.js</code>文件   需要暴露出去   export  default  function(){        return point;  }里面的代码跟setup里面的代码是意义的，别忘记了最后将其return出去    同时如果用到了一些ref等等，需要引入              注意注意，hook本质上是一个函数，所有引入给其他组件的时候需要调用</p>
+<h1 id="toRef与toRefs"><a href="#toRef与toRefs" class="headerlink" title="toRef与toRefs"></a>toRef与toRefs</h1><p>作用：创建ref  对象，语法：<code>const  name = toRef(person,&#39;name&#39;)</code>   因为我们在模板里面写的时候需要用到name属性，一般我们为                </p>
+<p><code>person.name</code>  但是感觉这样有点麻烦，我们就借助了<code>toRef  </code>可以直接用   name   这样name也是响应式的，也会引起person里面的属性变化    在  return  里面返回     return<code> &#123;  name:toRef(person,&#39;name&#39;)   &#125;</code>  我们这里不用ref是因为，虽然生成了ref，但是生成的是新的ref对象，他的改变不会影响    原来   setup  里面  person的name变化  </p>
+<p><code>toRefs </code> 返回多个ref对象       <code>     toRefs(person)    return&#123;     ...toRefs(person)   &#125;</code>    注意用…因为对象里面不能为对象，所以将其展开，就会生成一系列key-value    但是只能生成第一层的  ref     如age,name  ,a:{b}   这样模板里面使用  则  <code>age  name   a.b</code></p>
+<h1 id="下面组合式API了解即可"><a href="#下面组合式API了解即可" class="headerlink" title="下面组合式API了解即可"></a>下面组合式API了解即可</h1><h1 id="shallowReatcive-shallowRef"><a href="#shallowReatcive-shallowRef" class="headerlink" title="shallowReatcive  shallowRef"></a>shallowReatcive  shallowRef</h1><p><code>shallowReactive</code>  只处理对象最外层属性的响应式，（浅响应式） 可以实现性能优化</p>
+<p><code>shallowRef  </code>  只处理基本类型响应式（跟ref差不多）， 不进行对象的相应式处理，也就是说改了页面也不更新，也不求助于reactive</p>
+<h1 id="readonly-shallowReadonly"><a href="#readonly-shallowReadonly" class="headerlink" title="readonly  shallowReadonly"></a>readonly  shallowReadonly</h1><p><code>readonly</code>让一个相应式的数据变为只读的（深只读)就是每个属性都不能改</p>
+<p><code>shallowReadonly </code>  浅只读，第一层数据不能改，后面可以改</p>
+<p>应用场景：别人给我数据的时候，我这边不应该改数据，</p>
+<h1 id="toRaw-markRaw"><a href="#toRaw-markRaw" class="headerlink" title="toRaw  markRaw"></a>toRaw  markRaw</h1><p><code>toRaw</code>  将  reactive生成的响应式对象变成普通对象，，这样对对象操作，不会引起页面更新</p>
+<p><code>markRaw  </code> 标记一个对象，让其无法成为响应式对象，  如有些第三方库不应该为响应式，当渲染不可变大数据时，跳过响应式可以提高性能</p>
+<p><code>customRef  </code> :自定义ref</p>
+<h1 id="provide-inject"><a href="#provide-inject" class="headerlink" title="provide inject"></a>provide inject</h1><p>实现祖与后代组件间的通信   祖组件中  provide(‘car’,car)    第一个参数表示传入参数名字，第二个参数表示传入的东西                            后代组件    <code>const car = inject(&#39;car&#39;)</code> </p>
+<h1 id="相应式数据的判断"><a href="#相应式数据的判断" class="headerlink" title="相应式数据的判断"></a>相应式数据的判断</h1><p><code>isRef  isReactive isReadonly isProxy</code>检查一个对象是否是reactive或<code>readonly</code>方法创建的代理</p>
+<h1 id="组合式API优势"><a href="#组合式API优势" class="headerlink" title="组合式API优势"></a>组合式API优势</h1><p>vue2里面为配置对象API</p>
+<p>vue3为组合API，这样可以让相关功能代码更加有序组织在一起  其实为设置  hook函数，直接引入，方便点</p>
+<h1 id="新的组件"><a href="#新的组件" class="headerlink" title="新的组件"></a>新的组件</h1><p>vue2里面必须有根标签，但是vue3里面可以没有，其实会添加一个Fragment虚拟元素，减少标签层级</p>
+<p>teleport组件  <teleport to='body'></teleport>   可以让里面的元素传送走，to表示传送到某个地方，这样我们可以更方便的在某个参考系使用  这是移到了body里面，相当于body进行定位</p>
+<h1 id="vue3其他改变"><a href="#vue3其他改变" class="headerlink" title="vue3其他改变"></a>vue3其他改变</h1><p>移出过滤器  将<code>Vue.config</code>  或者其他方法移到了   <code>app.config   app.mixin</code>等等之类的</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/10/23/vue2/" rel="prev" title="vue2">
+                  <i class="fa fa-chevron-left"></i> vue2
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">bear</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</html>
